@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TranslateNow - NAATI Certified Translations for Backpackers & Expats</title>
-    <meta name="description" content="Get your documents translated by NAATI certified translators. Fixed price €39 per document, delivered in 24-48h. Perfect for backpackers, WHV holders and expats in Australia.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <title>MUNDI Translations - Agence de traduction certifiée internationale</title>
+    <meta name="description" content="Agence de traduction professionnelle certifiée NAATI, ATA, OTTIAQ. Traductions officielles en 65 langues. Devis gratuit, livraison 24-48h.">
     
     <style>
         :root {
-            --primary-blue: #00A3E0;
-            --orange: #FF6600;
-            --white: #FFFFFF;
-            --dark-gray: #2A2A2A;
-            --light-gray: #6B7280;
-            --bg-light: #FAFBFC;
+            /* Palette MUNDI - Différente de Tradutours */
+            --mundi-primary: #00a3e0;
+            --mundi-secondary: #4CAF50;
+            --mundi-accent: #FF8C00;
+            --mundi-dark: #003d6b;
+            --mundi-gray: #6c757d;
+            --mundi-light-gray: #f8f9fa;
+            --mundi-white: #ffffff;
+            --mundi-text: #333333;
         }
 
         * {
@@ -26,511 +26,536 @@
         }
 
         body {
-            font-family: 'Crimson Text', Georgia, serif;
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--dark-gray);
-            background-color: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--mundi-text);
+            background: var(--mundi-white);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
-        /* Header */
+        /* Header Style Tradutours mais couleurs MUNDI */
         .header {
-            background: var(--white);
-            box-shadow: 0 2px 20px rgba(0, 163, 224, 0.1);
-            position: fixed;
+            background: var(--mundi-white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
         }
 
-        .nav-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 20px 0;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 600;
-            font-style: italic;
-            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
             text-decoration: none;
+        }
+
+        .logo-img {
+            width: 200px;
+            height: auto;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 35px;
             align-items: center;
         }
 
         .nav-menu a {
+            color: var(--mundi-text);
             text-decoration: none;
-            color: var(--dark-gray);
-            font-weight: 400;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
         }
 
         .nav-menu a:hover {
-            color: var(--primary-blue);
+            color: var(--mundi-primary);
         }
 
-        .language-selector {
-            position: relative;
-        }
-
-        .lang-toggle {
-            background: var(--primary-blue);
-            color: var(--white);
-            border: none;
-            padding: 0.5rem 1rem;
+        .contact-btn {
+            background: var(--mundi-primary);
+            color: white !important;
+            padding: 10px 25px;
             border-radius: 25px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        .lang-toggle:hover {
-            background: var(--orange);
+        .contact-btn:hover {
+            background: var(--mundi-dark);
             transform: translateY(-2px);
         }
 
-        .lang-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            min-width: 200px;
-            z-index: 100;
-        }
-
-        .lang-dropdown.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .lang-option {
-            padding: 0.75rem 1rem;
-            cursor: pointer;
-            transition: background 0.2s ease;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .lang-option:hover {
-            background: var(--bg-light);
-            color: var(--primary-blue);
-        }
-
-        .lang-option:last-child {
-            border-bottom: none;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark-gray);
-        }
-
-        /* Hero Section */
+        /* Hero Section avec image 2 (carte monde sur laptop) */
         .hero {
-            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
-            padding: 120px 0 80px;
-            overflow: hidden;
-            position: relative;
+            padding: 80px 0;
+            background: linear-gradient(rgba(0,163,224,0.05), rgba(255,255,255,0));
         }
 
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 60px;
             align-items: center;
         }
 
         .hero-text h1 {
-            font-size: 3.2rem;
-            font-weight: 600;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--dark-gray);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--mundi-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
-        .hero-text h1 .highlight {
-            color: var(--primary-blue);
-            position: relative;
+        .hero-text h1 span {
+            color: var(--mundi-primary);
         }
 
-        .hero-text h1 .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--orange);
-            border-radius: 2px;
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--mundi-gray);
+            margin-bottom: 30px;
         }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--light-gray);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin: 40px 0;
         }
 
-        .price-highlight {
-            background: linear-gradient(135deg, var(--primary-blue), var(--orange));
-            color: var(--white);
-            padding: 1.5rem 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
+        .stat {
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 163, 224, 0.3);
-            animation: pulse 2s infinite;
         }
 
-        .price-highlight .price {
+        .stat-number {
             font-size: 2.5rem;
-            font-weight: 600;
-            font-style: italic;
+            font-weight: 700;
+            color: var(--mundi-primary);
+            display: block;
         }
 
-        .price-highlight .price-desc {
-            font-size: 1rem;
-            opacity: 0.9;
+        .stat-label {
+            color: var(--mundi-gray);
+            font-size: 0.9rem;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .cta-button {
-            background: var(--orange);
-            color: var(--white);
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 5px 20px rgba(255, 102, 0, 0.3);
-        }
-
-        .cta-button:hover {
-            background: var(--primary-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 163, 224, 0.4);
-        }
-
-        .hero-visual {
+        .hero-image {
             position: relative;
-            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .hero-illustration {
+        .hero-image img {
             width: 100%;
-            max-width: 500px;
             height: auto;
-            animation: float 3s ease-in-out infinite;
+            display: block;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Services Section */
-        .services {
+        /* Section Introduction comme Tradutours */
+        .intro-section {
             padding: 80px 0;
-            background: var(--white);
+            background: var(--mundi-white);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .intro-text h2 {
+            font-size: 2.2rem;
+            color: var(--mundi-dark);
+            margin-bottom: 20px;
+        }
+
+        .intro-text p {
+            color: var(--mundi-gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .certifications-list {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .certification-badge {
+            padding: 8px 20px;
+            background: var(--mundi-light-gray);
+            border-radius: 20px;
+            font-weight: 600;
+            color: var(--mundi-primary);
+            font-size: 0.9rem;
+        }
+
+        /* Services Grid comme Tradutours */
+        .services-section {
+            padding: 80px 0;
+            background: var(--mundi-light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: 600;
-            font-style: italic;
-            color: var(--dark-gray);
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            color: var(--mundi-dark);
+            margin-bottom: 15px;
         }
 
         .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--light-gray);
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.1rem;
+            color: var(--mundi-gray);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
         .service-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 20px;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            transition: all 0.3s;
+            border: 1px solid #e0e0e0;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 163, 224, 0.1);
-            border-color: var(--primary-blue);
+            box-shadow: 0 15px 30px rgba(0,163,224,0.15);
+            border-color: var(--mundi-primary);
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--orange));
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--mundi-primary), var(--mundi-secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
-            color: var(--white);
+            font-size: 30px;
+            color: white;
         }
 
-        .service-card h3 {
+        .service-title {
             font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--dark-gray);
-            margin-bottom: 1rem;
+            color: var(--mundi-dark);
+            margin-bottom: 15px;
         }
 
-        .service-card p {
-            color: var(--light-gray);
-            font-size: 1rem;
+        .service-desc {
+            color: var(--mundi-gray);
             line-height: 1.6;
         }
 
-        /* Languages Section */
-        .languages {
+        /* Expertise Section avec image 4 (support client) */
+        .expertise-section {
             padding: 80px 0;
-            background: var(--bg-light);
+            background: white;
         }
 
-        .languages-grid {
+        .expertise-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .language-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 15px;
-            display: flex;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            gap: 1rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
         }
 
-        .language-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 163, 224, 0.1);
+        .expertise-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
-        .flag {
-            font-size: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--bg-light);
+        .expertise-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .expertise-list {
+            list-style: none;
+        }
+
+        .expertise-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 25px;
+        }
+
+        .expertise-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--mundi-secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            margin-right: 15px;
+            flex-shrink: 0;
         }
 
-        .language-info h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--dark-gray);
-            margin-bottom: 0.25rem;
-        }
-
-        .language-info p {
-            color: var(--light-gray);
-            font-size: 0.9rem;
-        }
-
-        /* Quote Section */
-        .quote {
+        /* Languages Section */
+        .languages-section {
             padding: 80px 0;
-            background: var(--white);
+            background: var(--mundi-light-gray);
         }
 
-        .quote-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--white);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .quote-header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--orange));
-            color: var(--white);
-            padding: 2rem;
+        .languages-intro {
             text-align: center;
+            margin-bottom: 50px;
         }
 
-        .quote-header h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        .quote-header p {
-            opacity: 0.9;
-            font-size: 1rem;
-        }
-
-        .quote-form {
-            padding: 2.5rem;
-        }
-
-        .form-row {
+        .language-categories {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        .language-category {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
+        .category-title {
+            font-size: 1.3rem;
+            color: var(--mundi-primary);
+            margin-bottom: 20px;
             font-weight: 600;
-            color: var(--dark-gray);
         }
 
-        .form-control {
+        .language-list {
+            list-style: none;
+            columns: 2;
+            column-gap: 20px;
+        }
+
+        .language-list li {
+            padding: 5px 0;
+            color: var(--mundi-gray);
+        }
+
+        /* Process Section avec image 5 (personne travaillant) */
+        .process-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .process-image-container {
+            margin: 50px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .process-image-container img {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            height: auto;
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(0, 163, 224, 0.1);
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        .file-upload {
-            border: 2px dashed var(--primary-blue);
-            border-radius: 10px;
-            padding: 2rem;
+        .process-step {
             text-align: center;
-            background: var(--bg-light);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .file-upload:hover {
-            background: rgba(0, 163, 224, 0.05);
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 35px;
+            color: var(--mundi-primary);
+            font-size: 24px;
         }
 
-        .file-upload-text {
-            color: var(--primary-blue);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .process-step:last-child::after {
+            display: none;
         }
 
-        .file-upload-desc {
-            color: var(--light-gray);
-            font-size: 0.9rem;
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--mundi-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 20px;
         }
 
-        .volume-note {
-            background: var(--bg-light);
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
+        /* Clients Section */
+        .clients-section {
+            padding: 80px 0;
+            background: var(--mundi-light-gray);
+        }
+
+        .clients-logos {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 40px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .client-logo {
             text-align: center;
-            color: var(--light-gray);
-            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: opacity 0.3s;
         }
 
-        .submit-button {
-            background: linear-gradient(135deg, var(--primary-blue), var(--orange));
-            color: var(--white);
-            padding: 1.2rem 3rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .client-logo:hover {
+            opacity: 1;
+        }
+
+        /* Team Section avec image 7 */
+        .team-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .team-image {
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .team-image img {
             width: 100%;
-            margin-top: 1rem;
+            height: auto;
         }
 
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 163, 224, 0.3);
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--mundi-primary), var(--mundi-dark));
+            color: white;
+            text-align: center;
         }
 
-        /* Footer */
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--mundi-primary);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 15px 40px;
+            border: 2px solid white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--mundi-primary);
+        }
+
+        /* Footer comme Tradutours */
         .footer {
-            background: var(--dark-gray);
-            color: var(--white);
+            background: var(--mundi-dark);
+            color: white;
             padding: 60px 0 30px;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--mundi-primary);
+        }
+
+        .footer-brand p {
+            color: #b0c4de;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
         .footer-section h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary-blue);
+            margin-bottom: 20px;
+            color: white;
         }
 
         .footer-section ul {
@@ -538,85 +563,54 @@
         }
 
         .footer-section a {
-            color: #ccc;
+            color: #b0c4de;
             text-decoration: none;
             line-height: 2;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
         .footer-section a:hover {
-            color: var(--orange);
+            color: var(--mundi-primary);
         }
 
         .footer-bottom {
-            border-top: 1px solid #444;
-            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
             text-align: center;
-            color: #ccc;
+            color: #b0c4de;
         }
 
-        /* Responsive Design */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .form-row {
+            .hero-content,
+            .intro-grid,
+            .expertise-content {
                 grid-template-columns: 1fr;
             }
-
+            
             .services-grid {
                 grid-template-columns: 1fr;
             }
-
-            .languages-grid {
+            
+            .process-steps {
                 grid-template-columns: 1fr;
             }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Validation styles */
-        .form-control.error {
-            border-color: #e74c3c;
-        }
-
-        .form-control.success {
-            border-color: #2ecc71;
-        }
-
-        .error-message {
-            color: #e74c3c;
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
+            
+            .process-step::after {
+                display: none;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .clients-logos {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .language-categories {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -624,349 +618,345 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <nav class="nav-container">
-                <a href="#" class="logo">TranslateNow</a>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#languages">Languages</a></li>
-                    <li><a href="#quote">Get Quote</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="language-selector">
-                        <button class="lang-toggle" onclick="toggleLanguageDropdown()">
-                            🌐 English ▼
-                        </button>
-                        <div class="lang-dropdown" id="langDropdown">
-                            <div class="lang-option" onclick="setLanguage('en')">🇬🇧 English</div>
-                            <div class="lang-option" onclick="setLanguage('fr')">🇫🇷 Français</div>
-                            <div class="lang-option" onclick="setLanguage('es')">🇪🇸 Español</div>
-                            <div class="lang-option" onclick="setLanguage('pt')">🇵🇹 Português</div>
-                            <div class="lang-option" onclick="setLanguage('it')">🇮🇹 Italiano</div>
-                            <div class="lang-option" onclick="setLanguage('de')">🇩🇪 Deutsch</div>
-                            <div class="lang-option" onclick="setLanguage('zh')">🇨🇳 中文</div>
-                            <div class="lang-option" onclick="setLanguage('ko')">🇰🇷 한국어</div>
-                            <div class="lang-option" onclick="setLanguage('ja')">🇯🇵 日本語</div>
-                            <div class="lang-option" onclick="setLanguage('th')">🇹🇭 ไทย</div>
-                            <div class="lang-option" onclick="setLanguage('vi')">🇻🇳 Tiếng Việt</div>
-                        </div>
-                    </li>
-                </ul>
-                <button class="mobile-menu-toggle">☰</button>
-            </nav>
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <svg class="logo-img" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#003d6b" stroke-width="2"/>
+                        <path d="M30 40 Q50 30 70 40 Q50 50 30 40" fill="#00a3e0"/>
+                        <path d="M35 50 Q50 45 65 50 Q50 55 35 50" fill="#4CAF50"/>
+                        <path d="M30 60 Q50 55 70 60 Q50 65 30 60" fill="#FF8C00"/>
+                        <text x="100" y="55" font-family="Arial" font-size="36" font-weight="bold" fill="#003d6b">MUNDI</text>
+                        <text x="100" y="75" font-family="Arial" font-size="16" fill="#00a3e0">translations</text>
+                    </svg>
+                </a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#decouvrir">Nous découvrir</a></li>
+                        <li><a href="#services">Nos prestations</a></li>
+                        <li><a href="#process">Notre process</a></li>
+                        <li><a href="#equipe">Notre équipe</a></li>
+                        <li><a href="#contact" class="contact-btn">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- Hero Section avec Image 2 (carte monde laptop) -->
+    <section class="hero" id="accueil">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>NAATI Certified <span class="highlight">Translations</span></h1>
-                    <p class="hero-subtitle">Get your documents translated by certified NAATI translators. Perfect for backpackers, WHV holders and expats in Australia. Fast, reliable, and officially recognized.</p>
+                    <h1>Traduction, interprétation et relecture<br>
+                    <span>MUNDI, votre partenaire à l'international</span></h1>
+                    <p>Agence de traduction et d'interprétation professionnelle certifiée</p>
                     
-                    <div class="price-highlight">
-                        <div class="price">€39</div>
-                        <div class="price-desc">per document</div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">2015</span>
+                            <span class="stat-label">Création</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">65</span>
+                            <span class="stat-label">Langues</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">320</span>
+                            <span class="stat-label">Traducteurs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5M</span>
+                            <span class="stat-label">Mots/an</span>
+                        </div>
                     </div>
-                    
-                    <a href="#quote" class="cta-button">Get Your Quote within a day</a>
                 </div>
-                <div class="hero-visual">
-                    <svg class="hero-illustration" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Background elements -->
-                        <circle cx="100" cy="100" r="50" fill="#00A3E0" opacity="0.1"/>
-                        <circle cx="400" cy="300" r="30" fill="#FF6600" opacity="0.2"/>
-                        
-                        <!-- Main document -->
-                        <rect x="150" y="80" width="200" height="280" rx="15" fill="white" stroke="#00A3E0" stroke-width="2"/>
-                        <rect x="170" y="100" width="160" height="8" rx="4" fill="#00A3E0" opacity="0.3"/>
-                        <rect x="170" y="120" width="120" height="6" rx="3" fill="#6B7280" opacity="0.4"/>
-                        <rect x="170" y="135" width="140" height="6" rx="3" fill="#6B7280" opacity="0.4"/>
-                        <rect x="170" y="150" width="100" height="6" rx="3" fill="#6B7280" opacity="0.4"/>
-                        
-                        <!-- NAATI stamp -->
-                        <circle cx="250" cy="200" r="30" fill="#FF6600" opacity="0.1" stroke="#FF6600" stroke-width="2"/>
-                        <text x="250" y="205" text-anchor="middle" fill="#FF6600" font-size="12" font-weight="bold">NAATI</text>
-                        
-                        <!-- Backpack -->
-                        <rect x="50" y="250" width="60" height="80" rx="10" fill="#00A3E0"/>
-                        <rect x="55" y="260" width="50" height="15" rx="5" fill="#FF6600"/>
-                        <circle cx="80" cy="240" r="8" fill="#FF6600"/>
-                        
-                        <!-- Passport -->
-                        <rect x="380" y="200" width="40" height="55" rx="3" fill="#2A2A2A"/>
-                        <rect x="385" y="210" width="30" height="20" rx="2" fill="#00A3E0"/>
-                        <text x="400" y="250" text-anchor="middle" fill="white" font-size="8">VISA</text>
-                        
-                        <!-- Decorative elements -->
-                        <path d="M300 320 Q320 300 340 320 Q320 340 300 320" fill="#00A3E0" opacity="0.2"/>
-                        <path d="M80 150 Q100 130 120 150 Q100 170 80 150" fill="#FF6600" opacity="0.2"/>
-                    </svg>
+                <div class="hero-image">
+                    <!-- Image 2: Personne avec carte monde sur laptop -->
+                    <img src="laptop-world-map.jpg" alt="Traduction internationale MUNDI">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Un soutien personnalisé avec Image 1 -->
+    <section class="intro-section" id="decouvrir">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-image">
+                    <!-- Image 1: Personne en jaune travaillant -->
+                    <img src="person-working-yellow.jpg" alt="Support personnalisé MUNDI">
+                </div>
+                <div class="intro-text">
+                    <h2>Un soutien personnalisé</h2>
+                    <p><strong>Votre communication et votre image de marque à l'international</strong></p>
+                    <p>Créée en 2015, notre entreprise de traduction et d'interprétation multilingues bénéficie d'une solide expérience.</p>
+                    <p>Les clefs de la pérennité et de la réussite de notre entreprise ? La qualité et le respect des délais, préoccupations constantes chez MUNDI. Ce haut niveau d'exigence a permis de construire des partenariats forts et des relations de confiance avec nos clients.</p>
+                    <p>Notre mission est de vous aider à porter la voix de votre entreprise à l'international. Pour cela, chaque solution est produite sur-mesure avec une équipe dédiée.</p>
+                    <div class="certifications-list">
+                        <span class="certification-badge">ISO 9001</span>
+                        <span class="certification-badge">ISO 17100</span>
+                        <span class="certification-badge">NAATI</span>
+                        <span class="certification-badge">ATA</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
+    <section class="services-section" id="services">
         <div class="container">
-            <h2 class="section-title">Our Translation Services</h2>
-            <p class="section-subtitle">We translate all types of documents required for your Australian journey</p>
+            <div class="section-header">
+                <h2 class="section-title">Nos services de traduction professionnelle</h2>
+                <p class="section-subtitle">Notre agence de traduction internationale met ses expertises linguistiques et techniques à votre service</p>
+            </div>
             
             <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">🚗</div>
-                    <h3>Driver's Licenses</h3>
-                    <p>Get your driving license translated to start driving in Australia immediately</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">👶</div>
-                    <h3>Birth Certificates</h3>
-                    <p>Official birth certificate translations for visa applications and legal procedures</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">💍</div>
-                    <h3>Marriage Certificates</h3>
-                    <p>Certified translations of marriage certificates for family visa applications</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">🎓</div>
-                    <h3>Academic Records</h3>
-                    <p>Diplomas, transcripts, and educational certificates for work or study applications</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">📕</div>
-                    <h3>Passport</h3>
-                    <p>Passport translations for various official procedures and applications</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">🛡️</div>
-                    <h3>Police Clearance</h3>
-                    <p>Criminal background check translations required for visa applications</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">⚖️</div>
-                    <h3>Legal Documents</h3>
-                    <p>Court documents, contracts, and other legal papers requiring official translation</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">🏥</div>
-                    <h3>Medical Records</h3>
-                    <p>Medical certificates and health records for visa and insurance purposes</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">🛡️</div>
-                    <h3>Insurance Claims</h3>
-                    <p>Insurance documents and claims requiring certified translation</p>
-                </div>
-                
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <div class="service-icon">📄</div>
-                    <h3>Other Documents</h3>
-                    <p>Any other official document you need translated by NAATI certified translators</p>
+                    <h3 class="service-title">Traduction professionnelle</h3>
+                    <p class="service-desc">Traducteurs natifs et spécialisés pour tous vos documents techniques, commerciaux et juridiques</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">✓</div>
+                    <h3 class="service-title">Traduction assermentée</h3>
+                    <p class="service-desc">Traductions certifiées conformes reconnues par les autorités et administrations internationales</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎤</div>
+                    <h3 class="service-title">Interprétation</h3>
+                    <p class="service-desc">Interprètes professionnels pour vos conférences, réunions d'affaires et événements internationaux</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3 class="service-title">Relecture & Correction</h3>
+                    <p class="service-desc">Révision linguistique complète pour garantir la qualité de vos textes multilingues</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Localisation web</h3>
+                    <p class="service-desc">Adaptation culturelle et linguistique de vos sites web et applications pour chaque marché</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3 class="service-title">PAO multilingue</h3>
+                    <p class="service-desc">Mise en page professionnelle de vos documents traduits, prêts pour impression et diffusion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section avec Image 4 (support client) -->
+    <section class="expertise-section">
+        <div class="container">
+            <div class="expertise-content">
+                <div class="expertise-text">
+                    <h2>L'interprétation professionnelle</h2>
+                    <p>MUNDI offre également des prestations d'interprétariat en présentiel ou à distance, avec des professionnels assermentés ou non.</p>
+                    
+                    <ul class="expertise-list">
+                        <li class="expertise-item">
+                            <span class="expertise-icon">✓</span>
+                            <div>
+                                <strong>Interprétation consécutive</strong><br>
+                                L'interprète restitue les propos de l'orateur une fois son intervention terminée
+                            </div>
+                        </li>
+                        <li class="expertise-item">
+                            <span class="expertise-icon">✓</span>
+                            <div>
+                                <strong>Interprétation simultanée</strong><br>
+                                L'interprète traduit en temps réel lors de conférences et événements
+                            </div>
+                        </li>
+                        <li class="expertise-item">
+                            <span class="expertise-icon">✓</span>
+                            <div>
+                                <strong>Interprétation de liaison</strong><br>
+                                Pour vos réunions commerciales, visites de sites et négociations
+                            </div>
+                        </li>
+                        <li class="expertise-item">
+                            <span class="expertise-icon">✓</span>
+                            <div>
+                                <strong>Interprétation à distance</strong><br>
+                                Solution flexible par téléphone ou visioconférence
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="expertise-image">
+                    <!-- Image 4: Support client avec casque -->
+                    <img src="customer-support.jpg" alt="Interprétation professionnelle MUNDI">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Languages Section -->
-    <section class="languages" id="languages">
+    <section class="languages-section">
         <div class="container">
-            <h2 class="section-title">Supported Languages</h2>
-            <p class="section-subtitle">We translate from these languages to English with NAATI certified translators</p>
+            <div class="section-header">
+                <h2 class="section-title">Les langues proposées par notre société de traduction</h2>
+                <p class="section-subtitle">Notre bureau de traduction met à votre disposition des linguistes expérimentés dans 65+ langues</p>
+            </div>
             
-            <div class="languages-grid">
-                <div class="language-card fade-in">
-                    <div class="flag">🇫🇷</div>
-                    <div class="language-info">
-                        <h4>Français → English</h4>
-                        <p>French to English translations</p>
-                    </div>
+            <div class="language-categories">
+                <div class="language-category">
+                    <h3 class="category-title">6 langues officielles de l'ONU</h3>
+                    <ul class="language-list">
+                        <li>Anglais</li>
+                        <li>Arabe</li>
+                        <li>Chinois</li>
+                        <li>Espagnol</li>
+                        <li>Français</li>
+                        <li>Russe</li>
+                    </ul>
                 </div>
                 
-                <div class="language-card fade-in">
-                    <div class="flag">🇪🇸</div>
-                    <div class="language-info">
-                        <h4>Español → English</h4>
-                        <p>Spanish to English translations</p>
-                    </div>
+                <div class="language-category">
+                    <h3 class="category-title">24 langues de l'Union Européenne</h3>
+                    <ul class="language-list">
+                        <li>Allemand</li>
+                        <li>Bulgare</li>
+                        <li>Croate</li>
+                        <li>Danois</li>
+                        <li>Espagnol</li>
+                        <li>Estonien</li>
+                        <li>Finnois</li>
+                        <li>Français</li>
+                        <li>Grec</li>
+                        <li>Hongrois</li>
+                        <li>Italien</li>
+                        <li>Néerlandais</li>
+                    </ul>
                 </div>
                 
-                <div class="language-card fade-in">
-                    <div class="flag">🇵🇹</div>
-                    <div class="language-info">
-                        <h4>Português → English</h4>
-                        <p>Portuguese to English translations</p>
-                    </div>
-                </div>
-                
-                <div class="language-card fade-in">
-                    <div class="flag">🇮🇹</div>
-                    <div class="language-info">
-                        <h4>Italiano → English</h4>
-                        <p>Italian to English translations</p>
-                    </div>
-                </div>
-                
-                <div class="language-card fade-in">
-                    <div class="flag">🇩🇪</div>
-                    <div class="language-info">
-                        <h4>Deutsch → English</h4>
-                        <p>German to English translations</p>
-                    </div>
-                </div>
-                
-                <div class="language-card fade-in">
-                    <div class="flag">🇨🇳</div>
-                    <div class="language-info">
-                        <h4>中文 → English</h4>
-                        <p>Chinese to English translations</p>
-                    </div>
-                </div>
-                
-                <div class="language-card fade-in">
-                    <div class="flag">🇰🇷</div>
-                    <div class="language-info">
-                        <h4>한국어 → English</h4>
-                        <p>Korean to English translations</p>
-                    </div>
-                </div>
-                
-                <div class="language-card fade-in">
-                    <div class="flag">🇯🇵</div>
-                    <div class="language-info">
-                        <h4>日本語 → English</h4>
-                        <p>Japanese to English translations</p>
-                    </div>
-                </div>
-                
-                <div class="language-card fade-in">
-                    <div class="flag">🇹🇭</div>
-                    <div class="language-info">
-                        <h4>ไทย → English</h4>
-                        <p>Thai to English translations</p>
-                    </div>
-                </div>
-                
-                <div class="language-card fade-in">
-                    <div class="flag">🇻🇳</div>
-                    <div class="language-info">
-                        <h4>Tiếng Việt → English</h4>
-                        <p>Vietnamese to English translations</p>
-                    </div>
+                <div class="language-category">
+                    <h3 class="category-title">Langues asiatiques & autres</h3>
+                    <ul class="language-list">
+                        <li>Japonais</li>
+                        <li>Coréen</li>
+                        <li>Hindi</li>
+                        <li>Thaï</li>
+                        <li>Vietnamien</li>
+                        <li>Hébreu</li>
+                        <li>Turc</li>
+                        <li>Persan</li>
+                        <li>Norvégien</li>
+                        <li>Islandais</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quote Section -->
-    <section class="quote" id="quote">
+    <!-- Process Section avec Image 5 -->
+    <section class="process-section" id="process">
         <div class="container">
-            <div class="quote-container fade-in">
-                <div class="quote-header">
-                    <h2>Get Your Quote</h2>
-                    <p>Fill out the form below and get your translation quote within 24 hours</p>
+            <div class="section-header">
+                <h2 class="section-title">Notre processus de travail</h2>
+                <p class="section-subtitle">Une méthodologie éprouvée pour garantir qualité et respect des délais</p>
+            </div>
+            
+            <div class="process-image-container">
+                <!-- Image 5: Personne travaillant sur documents -->
+                <img src="person-working-documents.jpg" alt="Processus de traduction MUNDI">
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Analyse</h3>
+                    <p>Étude approfondie de vos besoins et documents</p>
                 </div>
-                
-                <form class="quote-form" id="quoteForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" class="form-control" required>
-                            <div class="error-message" id="firstNameError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" class="form-control" required>
-                            <div class="error-message" id="lastNameError"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                        <div class="error-message" id="emailError"></div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="documentType">Document Type *</label>
-                            <select id="documentType" name="documentType" class="form-control" required>
-                                <option value="">Select document type</option>
-                                <option value="birth-certificate">Birth Certificate</option>
-                                <option value="marriage-certificate">Marriage Certificate</option>
-                                <option value="drivers-license">Driver's License</option>
-                                <option value="academic-records">Academic Records</option>
-                                <option value="passport">Passport</option>
-                                <option value="death-certificate">Death Certificate</option>
-                                <option value="police-check">Police Check</option>
-                                <option value="legal-documentation">Legal Documentation</option>
-                                <option value="insurance-claims">Insurance Claims</option>
-                                <option value="medical-documentation">Medical Documentation</option>
-                                <option value="immigration-translation">Immigration Translation</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <div class="error-message" id="documentTypeError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="sourceLanguage">Source Language *</label>
-                            <select id="sourceLanguage" name="sourceLanguage" class="form-control" required>
-                                <option value="">Select source language</option>
-                                <option value="french">Français</option>
-                                <option value="spanish">Español</option>
-                                <option value="portuguese">Português</option>
-                                <option value="italian">Italiano</option>
-                                <option value="german">Deutsch</option>
-                                <option value="chinese">中文</option>
-                                <option value="korean">한국어</option>
-                                <option value="japanese">日本語</option>
-                                <option value="thai">ไทย</option>
-                                <option value="vietnamese">Tiếng Việt</option>
-                            </select>
-                            <div class="error-message" id="sourceLanguageError"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Additional Information</label>
-                        <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tell us about your specific requirements, deadlines, or any special instructions..."></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Upload Documents</label>
-                        <div class="file-upload" onclick="document.getElementById('fileInput1').click()">
-                            <div class="file-upload-text">📎 Click to upload your document</div>
-                            <div class="file-upload-desc">Supported formats: PDF, JPG, PNG (Max 10MB)</div>
-                            <input type="file" id="fileInput1" name="file1" accept=".pdf,.jpg,.jpeg,.png" style="display: none;" onchange="handleFileSelect(this, 'filePreview1')">
-                            <div id="filePreview1" class="file-preview"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Additional Document (Optional)</label>
-                        <div class="file-upload" onclick="document.getElementById('fileInput2').click()">
-                            <div class="file-upload-text">📎 Click to upload additional document</div>
-                            <div class="file-upload-desc">Supported formats: PDF, JPG, PNG (Max 10MB)</div>
-                            <input type="file" id="fileInput2" name="file2" accept=".pdf,.jpg,.jpeg,.png" style="display: none;" onchange="handleFileSelect(this, 'filePreview2')">
-                            <div id="filePreview2" class="file-preview"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="volume-note">
-                        📧 For large volumes (5+ documents), please email us directly for special pricing: <strong>translation@translatenow.com.au</strong>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">Send Quote Request</button>
-                </form>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Attribution</h3>
+                    <p>Sélection du traducteur expert dans votre domaine</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Traduction</h3>
+                    <p>Traduction par un natif spécialisé</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Contrôle</h3>
+                    <p>Révision et contrôle qualité systématique</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section avec Image 7 -->
+    <section class="team-section" id="equipe">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos traducteurs et interprètes professionnels</h2>
+                <p class="section-subtitle">Vos partenaires à l'international</p>
+            </div>
+            
+            <div class="team-image">
+                <!-- Image 7: Équipe en réunion -->
+                <img src="team-meeting.jpg" alt="Équipe MUNDI Translations">
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 1.1rem; color: var(--mundi-gray); max-width: 800px; margin: 0 auto;">
+                    La notoriété de notre société de traduction repose sur l'exigence des compétences. 
+                    Nos traducteurs et interprètes professionnels travaillent exclusivement dans leur langue maternelle. 
+                    Ils sont chefs de projet, spécialistes d'un domaine technique avec à minima 5 ans d'expérience dans leur secteur.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section avec logos -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ils nous font confiance</h2>
+                <p class="section-subtitle">Des clients prestigieux dans tous les secteurs d'activité</p>
+            </div>
+            
+            <div class="clients-logos">
+                <div class="client-logo">
+                    <div style="padding: 20px; font-weight: bold; color: var(--mundi-gray);">Client 1</div>
+                </div>
+                <div class="client-logo">
+                    <div style="padding: 20px; font-weight: bold; color: var(--mundi-gray);">Client 2</div>
+                </div>
+                <div class="client-logo">
+                    <div style="padding: 20px; font-weight: bold; color: var(--mundi-gray);">Client 3</div>
+                </div>
+                <div class="client-logo">
+                    <div style="padding: 20px; font-weight: bold; color: var(--mundi-gray);">Client 4</div>
+                </div>
+                <div class="client-logo">
+                    <div style="padding: 20px; font-weight: bold; color: var(--mundi-gray);">Client 5</div>
+                </div>
+                <div class="client-logo">
+                    <div style="padding: 20px; font-weight: bold; color: var(--mundi-gray);">Client 6</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Demandez un devis de traduction</h2>
+            <p class="cta-subtitle">Chez MUNDI, nous fonctionnons au cas par cas. Nous ajustons nos tarifs en fonction de vos besoins spécifiques.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-white">Demander un devis gratuit</a>
+                <a href="#services" class="btn-outline">Découvrir nos services</a>
             </div>
         </div>
     </section>
@@ -975,1154 +965,58 @@
     <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Home</h4>
-                    <ul>
-                        <li><a href="#home">Homepage</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#why-choose-us">Why Choose Us</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="#our-story">Our Story</a></li>
-                        <li><a href="#naati-certification">NAATI Certification</a></li>
-                        <li><a href="#quality-guarantee">Quality Guarantee</a></li>
-                        <li><a href="#team">Our Team</a></li>
-                    </ul>
+                <div class="footer-brand">
+                    <h3>MUNDI Translations</h3>
+                    <p>MUNDI Translations, un bureau de traduction discret et professionnel. Notre organisme garantit la discrétion et la confidentialité lors des interventions. Tous nos collaborateurs ont signé une clause de confidentialité.</p>
+                    <p>📧 contact@munditranslations.com<br>
+                    📞 +33 1 23 45 67 89</p>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#drivers-license">Driver's License</a></li>
-                        <li><a href="#birth-certificates">Birth Certificates</a></li>
-                        <li><a href="#academic-records">Academic Records</a></li>
-                        <li><a href="#legal-documents">Legal Documents</a></li>
+                        <li><a href="#">Traduction certifiée</a></li>
+                        <li><a href="#">Traduction assermentée</a></li>
+                        <li><a href="#">Interprétariat</a></li>
+                        <li><a href="#">Relecture</a></li>
+                        <li><a href="#">Localisation</a></li>
+                        <li><a href="#">PAO multilingue</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Languages</h4>
+                    <h4>Secteurs</h4>
                     <ul>
-                        <li><a href="#french">French → English</a></li>
-                        <li><a href="#spanish">Spanish → English</a></li>
-                        <li><a href="#portuguese">Portuguese → English</a></li>
-                        <li><a href="#all-languages">View All Languages</a></li>
+                        <li><a href="#">Juridique</a></li>
+                        <li><a href="#">Médical</a></li>
+                        <li><a href="#">Technique</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Financier</a></li>
+                        <li><a href="#">Tourisme</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Get Quote</h4>
+                    <h4>Informations</h4>
                     <ul>
-                        <li><a href="#quote">Request Quote</a></li>
-                        <li><a href="#pricing">Pricing Information</a></li>
-                        <li><a href="#turnaround">Turnaround Times</a></li>
-                        <li><a href="#rush-service">Rush Service</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="mailto:hello@translatenow.com.au">hello@translatenow.com.au</a></li>
-                        <li><a href="tel:+61234567890">+61 234 567 890</a></li>
-                        <li><a href="#live-chat">Live Chat Support</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Notre équipe</a></li>
+                        <li><a href="#">Certifications</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 TranslateNow. All rights reserved. | ABN: 12 345 678 901 | Privacy Policy | Terms of Service</p>
+                <p>© 2024 MUNDI Translations. Tous droits réservés. | Mentions légales | Politique de confidentialité | CGV</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Translations object
-        const translations = {
-            en: {
-                // Navigation
-                navHome: "Home",
-                navAbout: "About", 
-                navServices: "Services",
-                navLanguages: "Languages",
-                navGetQuote: "Get Quote",
-                navContact: "Contact",
-                
-                // Hero Section
-                heroTitle: "NAATI Certified",
-                heroHighlight: "Translations",
-                heroSubtitle: "Get your documents translated by certified NAATI translators. Perfect for backpackers, WHV holders and expats in Australia. Fast, reliable, and officially recognized.",
-                priceText: "per document",
-                ctaButton: "Get Your Quote within a day",
-                
-                // Services Section
-                servicesTitle: "Our Translation Services",
-                servicesSubtitle: "We translate all types of documents required for your Australian journey",
-                serviceDrivers: "Driver's Licenses",
-                serviceDriversDesc: "Get your driving license translated to start driving in Australia immediately",
-                serviceBirth: "Birth Certificates", 
-                serviceBirthDesc: "Official birth certificate translations for visa applications and legal procedures",
-                serviceMarriage: "Marriage Certificates",
-                serviceMarriageDesc: "Certified translations of marriage certificates for family visa applications",
-                serviceAcademic: "Academic Records",
-                serviceAcademicDesc: "Diplomas, transcripts, and educational certificates for work or study applications",
-                servicePassport: "Passport",
-                servicePassportDesc: "Passport translations for various official procedures and applications",
-                servicePolice: "Police Clearance",
-                servicePoliceDesc: "Criminal background check translations required for visa applications",
-                serviceLegal: "Legal Documents",
-                serviceLegalDesc: "Court documents, contracts, and other legal papers requiring official translation",
-                serviceMedical: "Medical Records",
-                serviceMedicalDesc: "Medical certificates and health records for visa and insurance purposes",
-                serviceInsurance: "Insurance Claims",
-                serviceInsuranceDesc: "Insurance documents and claims requiring certified translation",
-                serviceOther: "Other Documents",
-                serviceOtherDesc: "Any other official document you need translated by NAATI certified translators",
-                
-                // Languages Section
-                languagesTitle: "Supported Languages",
-                languagesSubtitle: "We translate from these languages to English with NAATI certified translators",
-                
-                // Quote Section
-                quoteTitle: "Get Your Quote",
-                quoteSubtitle: "Fill out the form below and get your translation quote within 24 hours",
-                formFirstName: "First Name",
-                formLastName: "Last Name", 
-                formEmail: "Email Address",
-                formDocType: "Document Type",
-                formSourceLang: "Source Language",
-                formMessage: "Additional Information",
-                formMessagePlaceholder: "Tell us about your specific requirements, deadlines, or any special instructions...",
-                formUpload1: "Upload Documents",
-                formUpload2: "Additional Document (Optional)",
-                uploadText: "📎 Click to upload your document",
-                uploadDesc: "Supported formats: PDF, JPG, PNG (Max 10MB)",
-                volumeNote: "📧 For large volumes (5+ documents), please email us directly for special pricing:",
-                submitButton: "Send Quote Request",
-                
-                // Document Types
-                docSelectType: "Select document type",
-                docBirthCert: "Birth Certificate",
-                docMarriageCert: "Marriage Certificate", 
-                docDriversLicense: "Driver's License",
-                docAcademicRecords: "Academic Records",
-                docPassport: "Passport",
-                docDeathCert: "Death Certificate",
-                docPoliceCheck: "Police Check",
-                docLegalDoc: "Legal Documentation",
-                docInsuranceClaims: "Insurance Claims",
-                docMedicalDoc: "Medical Documentation",
-                docImmigrationTrans: "Immigration Translation",
-                docOther: "Other",
-                
-                // Source Languages
-                selectSourceLang: "Select source language"
-            },
-            
-            fr: {
-                // Navigation
-                navHome: "Accueil",
-                navAbout: "À propos",
-                navServices: "Services", 
-                navLanguages: "Langues",
-                navGetQuote: "Devis",
-                navContact: "Contact",
-                
-                // Hero Section
-                heroTitle: "Traductions Certifiées",
-                heroHighlight: "NAATI",
-                heroSubtitle: "Faites traduire vos documents par des traducteurs certifiés NAATI. Parfait pour les backpackers, détenteurs de WHV et expatriés en Australie. Rapide, fiable et officiellement reconnu.",
-                priceText: "par document",
-                ctaButton: "Obtenez votre devis en 24h",
-                
-                // Services Section
-                servicesTitle: "Nos Services de Traduction",
-                servicesSubtitle: "Nous traduisons tous types de documents requis pour votre aventure australienne",
-                serviceDrivers: "Permis de Conduire",
-                serviceDriversDesc: "Faites traduire votre permis de conduire pour commencer à conduire en Australie immédiatement",
-                serviceBirth: "Actes de Naissance",
-                serviceBirthDesc: "Traductions officielles d'actes de naissance pour demandes de visa et procédures légales",
-                serviceMarriage: "Actes de Mariage",
-                serviceMarriageDesc: "Traductions certifiées d'actes de mariage pour demandes de visa familial",
-                serviceAcademic: "Diplômes et Relevés",
-                serviceAcademicDesc: "Diplômes, relevés de notes et certificats éducatifs pour candidatures de travail ou d'études",
-                servicePassport: "Passeport",
-                servicePassportDesc: "Traductions de passeport pour diverses procédures officielles et candidatures",
-                servicePolice: "Casier Judiciaire",
-                servicePoliceDesc: "Traductions de vérifications d'antécédents criminels requises pour les demandes de visa",
-                serviceLegal: "Documents Légaux",
-                serviceLegalDesc: "Documents judiciaires, contrats et autres papiers légaux nécessitant une traduction officielle",
-                serviceMedical: "Dossiers Médicaux",
-                serviceMedicalDesc: "Certificats médicaux et dossiers de santé pour visa et assurance",
-                serviceInsurance: "Réclamations d'Assurance",
-                serviceInsuranceDesc: "Documents d'assurance et réclamations nécessitant une traduction certifiée",
-                serviceOther: "Autres Documents",
-                serviceOtherDesc: "Tout autre document officiel que vous devez faire traduire par des traducteurs certifiés NAATI",
-                
-                // Languages Section
-                languagesTitle: "Langues Supportées",
-                languagesSubtitle: "Nous traduisons de ces langues vers l'anglais avec des traducteurs certifiés NAATI",
-                
-                // Quote Section
-                quoteTitle: "Obtenez Votre Devis",
-                quoteSubtitle: "Remplissez le formulaire ci-dessous et obtenez votre devis de traduction sous 24 heures",
-                formFirstName: "Prénom",
-                formLastName: "Nom",
-                formEmail: "Adresse E-mail",
-                formDocType: "Type de Document",
-                formSourceLang: "Langue Source",
-                formMessage: "Informations Supplémentaires",
-                formMessagePlaceholder: "Parlez-nous de vos exigences spécifiques, délais ou instructions particulières...",
-                formUpload1: "Télécharger Documents",
-                formUpload2: "Document Supplémentaire (Optionnel)",
-                uploadText: "📎 Cliquez pour télécharger votre document",
-                uploadDesc: "Formats supportés : PDF, JPG, PNG (Max 10MB)",
-                volumeNote: "📧 Pour de gros volumes (5+ documents), veuillez nous contacter directement pour un tarif spécial :",
-                submitButton: "Envoyer la Demande de Devis",
-                
-                // Document Types
-                docSelectType: "Sélectionner le type de document",
-                docBirthCert: "Acte de Naissance",
-                docMarriageCert: "Acte de Mariage",
-                docDriversLicense: "Permis de Conduire",
-                docAcademicRecords: "Diplômes et Relevés",
-                docPassport: "Passeport",
-                docDeathCert: "Acte de Décès",
-                docPoliceCheck: "Casier Judiciaire",
-                docLegalDoc: "Documentation Légale",
-                docInsuranceClaims: "Réclamations d'Assurance",
-                docMedicalDoc: "Documentation Médicale",
-                docImmigrationTrans: "Traduction d'Immigration",
-                docOther: "Autre",
-                
-                // Source Languages
-                selectSourceLang: "Sélectionner la langue source"
-            },
-            
-            es: {
-                // Navigation
-                navHome: "Inicio",
-                navAbout: "Nosotros",
-                navServices: "Servicios",
-                navLanguages: "Idiomas", 
-                navGetQuote: "Cotización",
-                navContact: "Contacto",
-                
-                // Hero Section
-                heroTitle: "Traducciones Certificadas",
-                heroHighlight: "NAATI",
-                heroSubtitle: "Haz que tus documentos sean traducidos por traductores certificados NAATI. Perfecto para mochileros, portadores de WHV y expatriados en Australia. Rápido, confiable y oficialmente reconocido.",
-                priceText: "por documento",
-                ctaButton: "Obtén tu cotización en 24h",
-                
-                // Services Section
-                servicesTitle: "Nuestros Servicios de Traducción",
-                servicesSubtitle: "Traducimos todos los tipos de documentos requeridos para tu aventura australiana",
-                serviceDrivers: "Licencias de Conducir",
-                serviceDriversDesc: "Traduce tu licencia de conducir para empezar a manejar en Australia inmediatamente",
-                serviceBirth: "Certificados de Nacimiento",
-                serviceBirthDesc: "Traducciones oficiales de certificados de nacimiento para solicitudes de visa y procedimientos legales",
-                serviceMarriage: "Certificados de Matrimonio",
-                serviceMarriageDesc: "Traducciones certificadas de certificados de matrimonio para solicitudes de visa familiar",
-                serviceAcademic: "Expedientes Académicos",
-                serviceAcademicDesc: "Diplomas, transcripciones y certificados educativos para solicitudes de trabajo o estudio",
-                servicePassport: "Pasaporte",
-                servicePassportDesc: "Traducciones de pasaporte para varios procedimientos oficiales y solicitudes",
-                servicePolice: "Antecedentes Penales",
-                servicePoliceDesc: "Traducciones de verificaciones de antecedentes criminales requeridas para solicitudes de visa",
-                serviceLegal: "Documentos Legales",
-                serviceLegalDesc: "Documentos judiciales, contratos y otros papeles legales que requieren traducción oficial",
-                serviceMedical: "Registros Médicos",
-                serviceMedicalDesc: "Certificados médicos y registros de salud para visa y propósitos de seguro",
-                serviceInsurance: "Reclamos de Seguro",
-                serviceInsuranceDesc: "Documentos de seguro y reclamos que requieren traducción certificada",
-                serviceOther: "Otros Documentos",
-                serviceOtherDesc: "Cualquier otro documento oficial que necesites traducir por traductores certificados NAATI",
-                
-                // Languages Section
-                languagesTitle: "Idiomas Soportados",
-                languagesSubtitle: "Traducimos de estos idiomas al inglés con traductores certificados NAATI",
-                
-                // Quote Section
-                quoteTitle: "Obtén Tu Cotización",
-                quoteSubtitle: "Completa el formulario a continuación y obtén tu cotización de traducción en 24 horas",
-                formFirstName: "Nombre",
-                formLastName: "Apellido",
-                formEmail: "Correo Electrónico",
-                formDocType: "Tipo de Documento",
-                formSourceLang: "Idioma de Origen",
-                formMessage: "Información Adicional",
-                formMessagePlaceholder: "Cuéntanos sobre tus requisitos específicos, plazos o instrucciones especiales...",
-                formUpload1: "Subir Documentos",
-                formUpload2: "Documento Adicional (Opcional)",
-                uploadText: "📎 Haz clic para subir tu documento",
-                uploadDesc: "Formatos soportados: PDF, JPG, PNG (Máx 10MB)",
-                volumeNote: "📧 Para grandes volúmenes (5+ documentos), contáctanos directamente para precios especiales:",
-                submitButton: "Enviar Solicitud de Cotización",
-                
-                // Document Types
-                docSelectType: "Seleccionar tipo de documento",
-                docBirthCert: "Certificado de Nacimiento",
-                docMarriageCert: "Certificado de Matrimonio",
-                docDriversLicense: "Licencia de Conducir",
-                docAcademicRecords: "Expedientes Académicos",
-                docPassport: "Pasaporte",
-                docDeathCert: "Certificado de Defunción",
-                docPoliceCheck: "Antecedentes Penales",
-                docLegalDoc: "Documentación Legal",
-                docInsuranceClaims: "Reclamos de Seguro",
-                docMedicalDoc: "Documentación Médica",
-                docImmigrationTrans: "Traducción de Inmigración",
-                docOther: "Otro",
-                
-                // Source Languages
-                selectSourceLang: "Seleccionar idioma de origen"
-            },
-            
-            pt: {
-                // Navigation
-                navHome: "Início",
-                navAbout: "Sobre",
-                navServices: "Serviços",
-                navLanguages: "Idiomas",
-                navGetQuote: "Orçamento",
-                navContact: "Contato",
-                
-                // Hero Section
-                heroTitle: "Traduções Certificadas",
-                heroHighlight: "NAATI",
-                heroSubtitle: "Tenha seus documentos traduzidos por tradutores certificados NAATI. Perfeito para mochileiros, portadores de WHV e expatriados na Austrália. Rápido, confiável e oficialmente reconhecido.",
-                priceText: "por documento",
-                ctaButton: "Obtenha seu orçamento em 24h",
-                
-                // Services Section
-                servicesTitle: "Nossos Serviços de Tradução",
-                servicesSubtitle: "Traduzimos todos os tipos de documentos necessários para sua jornada australiana",
-                serviceDrivers: "Carteiras de Motorista",
-                serviceDriversDesc: "Traduza sua carteira de motorista para começar a dirigir na Austrália imediatamente",
-                serviceBirth: "Certidões de Nascimento",
-                serviceBirthDesc: "Traduções oficiais de certidões de nascimento para pedidos de visto e procedimentos legais",
-                serviceMarriage: "Certidões de Casamento",
-                serviceMarriageDesc: "Traduções certificadas de certidões de casamento para pedidos de visto familiar",
-                serviceAcademic: "Registros Acadêmicos",
-                serviceAcademicDesc: "Diplomas, históricos e certificados educacionais para candidaturas de trabalho ou estudo",
-                servicePassport: "Passaporte",
-                servicePassportDesc: "Traduções de passaporte para vários procedimentos oficiais e candidaturas",
-                servicePolice: "Atestado de Antecedentes",
-                servicePoliceDesc: "Traduções de verificações de antecedentes criminais necessárias para pedidos de visto",
-                serviceLegal: "Documentos Legais",
-                serviceLegalDesc: "Documentos judiciais, contratos e outros papéis legais que requerem tradução oficial",
-                serviceMedical: "Registros Médicos",
-                serviceMedicalDesc: "Certificados médicos e registros de saúde para visto e propósitos de seguro",
-                serviceInsurance: "Reivindicações de Seguro",
-                serviceInsuranceDesc: "Documentos de seguro e reivindicações que requerem tradução certificada",
-                serviceOther: "Outros Documentos",
-                serviceOtherDesc: "Qualquer outro documento oficial que você precise traduzir por tradutores certificados NAATI",
-                
-                // Languages Section
-                languagesTitle: "Idiomas Suportados",
-                languagesSubtitle: "Traduzimos destes idiomas para o inglês com tradutores certificados NAATI",
-                
-                // Quote Section
-                quoteTitle: "Obtenha Seu Orçamento",
-                quoteSubtitle: "Preencha o formulário abaixo e obtenha seu orçamento de tradução em 24 horas",
-                formFirstName: "Primeiro Nome",
-                formLastName: "Sobrenome",
-                formEmail: "Endereço de E-mail",
-                formDocType: "Tipo de Documento",
-                formSourceLang: "Idioma de Origem",
-                formMessage: "Informações Adicionais",
-                formMessagePlaceholder: "Conte-nos sobre seus requisitos específicos, prazos ou instruções especiais...",
-                formUpload1: "Carregar Documentos",
-                formUpload2: "Documento Adicional (Opcional)",
-                uploadText: "📎 Clique para carregar seu documento",
-                uploadDesc: "Formatos suportados: PDF, JPG, PNG (Máx 10MB)",
-                volumeNote: "📧 Para grandes volumes (5+ documentos), entre em contato conosco diretamente para preços especiais:",
-                submitButton: "Enviar Solicitação de Orçamento",
-                
-                // Document Types
-                docSelectType: "Selecionar tipo de documento",
-                docBirthCert: "Certidão de Nascimento",
-                docMarriageCert: "Certidão de Casamento",
-                docDriversLicense: "Carteira de Motorista",
-                docAcademicRecords: "Registros Acadêmicos",
-                docPassport: "Passaporte",
-                docDeathCert: "Certidão de Óbito",
-                docPoliceCheck: "Atestado de Antecedentes",
-                docLegalDoc: "Documentação Legal",
-                docInsuranceClaims: "Reivindicações de Seguro",
-                docMedicalDoc: "Documentação Médica",
-                docImmigrationTrans: "Tradução de Imigração",
-                docOther: "Outro",
-                
-                // Source Languages
-                selectSourceLang: "Selecionar idioma de origem"
-            },
-            
-            it: {
-                // Navigation
-                navHome: "Home",
-                navAbout: "Chi Siamo",
-                navServices: "Servizi",
-                navLanguages: "Lingue",
-                navGetQuote: "Preventivo",
-                navContact: "Contatto",
-                
-                // Hero Section
-                heroTitle: "Traduzioni Certificate",
-                heroHighlight: "NAATI",
-                heroSubtitle: "Fai tradurre i tuoi documenti da traduttori certificati NAATI. Perfetto per backpacker, titolari di WHV ed espatriati in Australia. Veloce, affidabile e ufficialmente riconosciuto.",
-                priceText: "per documento",
-                ctaButton: "Ottieni il tuo preventivo in 24h",
-                
-                // Services Section
-                servicesTitle: "I Nostri Servizi di Traduzione",
-                servicesSubtitle: "Traduciamo tutti i tipi di documenti necessari per il tuo viaggio australiano",
-                serviceDrivers: "Patenti di Guida",
-                serviceDriversDesc: "Fai tradurre la tua patente per iniziare a guidare in Australia immediatamente",
-                serviceBirth: "Certificati di Nascita",
-                serviceBirthDesc: "Traduzioni ufficiali di certificati di nascita per richieste di visto e procedure legali",
-                serviceMarriage: "Certificati di Matrimonio",
-                serviceMarriageDesc: "Traduzioni certificate di certificati di matrimonio per richieste di visto familiare",
-                serviceAcademic: "Registri Accademici",
-                serviceAcademicDesc: "Diplomi, trascrizioni e certificati educativi per candidature lavorative o di studio",
-                servicePassport: "Passaporto",
-                servicePassportDesc: "Traduzioni di passaporto per varie procedure ufficiali e candidature",
-                servicePolice: "Casellario Giudiziale",
-                servicePoliceDesc: "Traduzioni di verifiche dei precedenti penali richieste per richieste di visto",
-                serviceLegal: "Documenti Legali",
-                serviceLegalDesc: "Documenti giudiziari, contratti e altri documenti legali che richiedono traduzione ufficiale",
-                serviceMedical: "Registri Medici",
-                serviceMedicalDesc: "Certificati medici e registri sanitari per visto e scopi assicurativi",
-                serviceInsurance: "Richieste di Risarcimento",
-                serviceInsuranceDesc: "Documenti assicurativi e richieste che richiedono traduzione certificata",
-                serviceOther: "Altri Documenti",
-                serviceOtherDesc: "Qualsiasi altro documento ufficiale che devi far tradurre da traduttori certificati NAATI",
-                
-                // Languages Section
-                languagesTitle: "Lingue Supportate",
-                languagesSubtitle: "Traduciamo da queste lingue all'inglese con traduttori certificati NAATI",
-                
-                // Quote Section
-                quoteTitle: "Ottieni il Tuo Preventivo",
-                quoteSubtitle: "Compila il modulo qui sotto e ottieni il tuo preventivo di traduzione entro 24 ore",
-                formFirstName: "Nome",
-                formLastName: "Cognome",
-                formEmail: "Indirizzo Email",
-                formDocType: "Tipo di Documento",
-                formSourceLang: "Lingua di Origine",
-                formMessage: "Informazioni Aggiuntive",
-                formMessagePlaceholder: "Raccontaci dei tuoi requisiti specifici, scadenze o istruzioni speciali...",
-                formUpload1: "Carica Documenti",
-                formUpload2: "Documento Aggiuntivo (Opzionale)",
-                uploadText: "📎 Clicca per caricare il tuo documento",
-                uploadDesc: "Formati supportati: PDF, JPG, PNG (Max 10MB)",
-                volumeNote: "📧 Per grandi volumi (5+ documenti), contattaci direttamente per prezzi speciali:",
-                submitButton: "Invia Richiesta di Preventivo",
-                
-                // Document Types
-                docSelectType: "Seleziona tipo di documento",
-                docBirthCert: "Certificato di Nascita",
-                docMarriageCert: "Certificato di Matrimonio",
-                docDriversLicense: "Patente di Guida",
-                docAcademicRecords: "Registri Accademici",
-                docPassport: "Passaporto",
-                docDeathCert: "Certificato di Morte",
-                docPoliceCheck: "Casellario Giudiziale",
-                docLegalDoc: "Documentazione Legale",
-                docInsuranceClaims: "Richieste di Risarcimento",
-                docMedicalDoc: "Documentazione Medica",
-                docImmigrationTrans: "Traduzione di Immigrazione",
-                docOther: "Altro",
-                
-                // Source Languages
-                selectSourceLang: "Seleziona lingua di origine"
-            },
-            
-            de: {
-                // Navigation
-                navHome: "Startseite",
-                navAbout: "Über uns",
-                navServices: "Dienste",
-                navLanguages: "Sprachen",
-                navGetQuote: "Angebot",
-                navContact: "Kontakt",
-                
-                // Hero Section
-                heroTitle: "NAATI Zertifizierte",
-                heroHighlight: "Übersetzungen",
-                heroSubtitle: "Lassen Sie Ihre Dokumente von zertifizierten NAATI-Übersetzern übersetzen. Perfekt für Backpacker, WHV-Inhaber und Expats in Australien. Schnell, zuverlässig und offiziell anerkannt.",
-                priceText: "pro Dokument",
-                ctaButton: "Ihr Angebot in 24h erhalten",
-                
-                // Services Section
-                servicesTitle: "Unsere Übersetzungsdienste",
-                servicesSubtitle: "Wir übersetzen alle Arten von Dokumenten, die für Ihre australische Reise erforderlich sind",
-                serviceDrivers: "Führerscheine",
-                serviceDriversDesc: "Lassen Sie Ihren Führerschein übersetzen, um sofort in Australien fahren zu können",
-                serviceBirth: "Geburtsurkunden",
-                serviceBirthDesc: "Offizielle Übersetzungen von Geburtsurkunden für Visaanträge und rechtliche Verfahren",
-                serviceMarriage: "Heiratsurkunden",
-                serviceMarriageDesc: "Zertifizierte Übersetzungen von Heiratsurkunden für Familienvisa-Anträge",
-                serviceAcademic: "Akademische Unterlagen",
-                serviceAcademicDesc: "Diplome, Zeugnisse und Bildungszertifikate für Arbeits- oder Studienbewerbungen",
-                servicePassport: "Reisepass",
-                servicePassportDesc: "Reisepass-Übersetzungen für verschiedene offizielle Verfahren und Bewerbungen",
-                servicePolice: "Führungszeugnis",
-                servicePoliceDesc: "Übersetzungen von Führungszeugnissen, die für Visaanträge erforderlich sind",
-                serviceLegal: "Rechtsdokumente",
-                serviceLegalDesc: "Gerichtsdokumente, Verträge und andere rechtliche Papiere, die eine offizielle Übersetzung benötigen",
-                serviceMedical: "Medizinische Unterlagen",
-                serviceMedicalDesc: "Ärztliche Bescheinigungen und Gesundheitsakten für Visa- und Versicherungszwecke",
-                serviceInsurance: "Versicherungsansprüche",
-                serviceInsuranceDesc: "Versicherungsdokumente und Ansprüche, die eine zertifizierte Übersetzung benötigen",
-                serviceOther: "Andere Dokumente",
-                serviceOtherDesc: "Jedes andere offizielle Dokument, das Sie von zertifizierten NAATI-Übersetzern übersetzen lassen müssen",
-                
-                // Languages Section
-                languagesTitle: "Unterstützte Sprachen",
-                languagesSubtitle: "Wir übersetzen von diesen Sprachen ins Englische mit zertifizierten NAATI-Übersetzern",
-                
-                // Quote Section
-                quoteTitle: "Ihr Angebot Erhalten",
-                quoteSubtitle: "Füllen Sie das untenstehende Formular aus und erhalten Sie Ihr Übersetzungsangebot innerhalb von 24 Stunden",
-                formFirstName: "Vorname",
-                formLastName: "Nachname",
-                formEmail: "E-Mail-Adresse",
-                formDocType: "Dokumenttyp",
-                formSourceLang: "Quellsprache",
-                formMessage: "Zusätzliche Informationen",
-                formMessagePlaceholder: "Erzählen Sie uns von Ihren spezifischen Anforderungen, Fristen oder besonderen Anweisungen...",
-                formUpload1: "Dokumente Hochladen",
-                formUpload2: "Zusätzliches Dokument (Optional)",
-                uploadText: "📎 Klicken Sie, um Ihr Dokument hochzuladen",
-                uploadDesc: "Unterstützte Formate: PDF, JPG, PNG (Max 10MB)",
-                volumeNote: "📧 Für große Mengen (5+ Dokumente) kontaktieren Sie uns direkt für Sonderpreise:",
-                submitButton: "Angebotsanfrage Senden",
-                
-                // Document Types
-                docSelectType: "Dokumenttyp auswählen",
-                docBirthCert: "Geburtsurkunde",
-                docMarriageCert: "Heiratsurkunde",
-                docDriversLicense: "Führerschein",
-                docAcademicRecords: "Akademische Unterlagen",
-                docPassport: "Reisepass",
-                docDeathCert: "Sterbeurkunde",
-                docPoliceCheck: "Führungszeugnis",
-                docLegalDoc: "Rechtsdokumentation",
-                docInsuranceClaims: "Versicherungsansprüche",
-                docMedicalDoc: "Medizinische Dokumentation",
-                docImmigrationTrans: "Einwanderungs-Übersetzung",
-                docOther: "Andere",
-                
-                // Source Languages
-                selectSourceLang: "Quellsprache auswählen"
-            },
-            
-            zh: {
-                // Navigation
-                navHome: "首页",
-                navAbout: "关于我们",
-                navServices: "服务",
-                navLanguages: "语言",
-                navGetQuote: "获取报价",
-                navContact: "联系我们",
-                
-                // Hero Section
-                heroTitle: "NAATI认证",
-                heroHighlight: "翻译服务",
-                heroSubtitle: "让经过NAATI认证的翻译人员翻译您的文件。非常适合在澳大利亚的背包客、WHV持有者和外派人员。快速、可靠且官方认可。",
-                priceText: "每份文件",
-                ctaButton: "24小时内获取报价",
-                
-                // Services Section
-                servicesTitle: "我们的翻译服务",
-                servicesSubtitle: "我们翻译您澳大利亚之旅所需的所有类型文件",
-                serviceDrivers: "驾驶执照",
-                serviceDriversDesc: "翻译您的驾驶执照，立即在澳大利亚开始驾驶",
-                serviceBirth: "出生证明",
-                serviceBirthDesc: "签证申请和法律程序所需的官方出生证明翻译",
-                serviceMarriage: "结婚证书",
-                serviceMarriageDesc: "家庭签证申请所需的结婚证书认证翻译",
-                serviceAcademic: "学历记录",
-                serviceAcademicDesc: "工作或学习申请所需的文凭、成绩单和教育证书",
-                servicePassport: "护照",
-                servicePassportDesc: "各种官方程序和申请所需的护照翻译",
-                servicePolice: "无犯罪记录证明",
-                servicePoliceDesc: "签证申请所需的犯罪背景调查翻译",
-                serviceLegal: "法律文件",
-                serviceLegalDesc: "需要官方翻译的法庭文件、合同和其他法律文件",
-                serviceMedical: "医疗记录",
-                serviceMedicalDesc: "签证和保险用途的医疗证明和健康记录",
-                serviceInsurance: "保险理赔",
-                serviceInsuranceDesc: "需要认证翻译的保险文件和理赔",
-                serviceOther: "其他文件",
-                serviceOtherDesc: "任何其他需要NAATI认证翻译人员翻译的官方文件",
-                
-                // Languages Section
-                languagesTitle: "支持的语言",
-                languagesSubtitle: "我们通过NAATI认证翻译人员从这些语言翻译成英语",
-                
-                // Quote Section
-                quoteTitle: "获取报价",
-                quoteSubtitle: "填写下面的表格，24小时内获得翻译报价",
-                formFirstName: "名",
-                formLastName: "姓",
-                formEmail: "电子邮箱",
-                formDocType: "文件类型",
-                formSourceLang: "源语言",
-                formMessage: "附加信息",
-                formMessagePlaceholder: "告诉我们您的具体要求、截止日期或特殊说明...",
-                formUpload1: "上传文件",
-                formUpload2: "附加文件（可选）",
-                uploadText: "📎 点击上传您的文件",
-                uploadDesc: "支持格式：PDF、JPG、PNG（最大10MB）",
-                volumeNote: "📧 大批量文件（5份以上），请直接联系我们获取特价：",
-                submitButton: "发送报价请求",
-                
-                // Document Types
-                docSelectType: "选择文件类型",
-                docBirthCert: "出生证明",
-                docMarriageCert: "结婚证书",
-                docDriversLicense: "驾驶执照",
-                docAcademicRecords: "学历记录",
-                docPassport: "护照",
-                docDeathCert: "死亡证明",
-                docPoliceCheck: "无犯罪记录证明",
-                docLegalDoc: "法律文件",
-                docInsuranceClaims: "保险理赔",
-                docMedicalDoc: "医疗文件",
-                docImmigrationTrans: "移民翻译",
-                docOther: "其他",
-                
-                // Source Languages
-                selectSourceLang: "选择源语言"
-            },
-            
-            ko: {
-                // Navigation
-                navHome: "홈",
-                navAbout: "회사소개",
-                navServices: "서비스",
-                navLanguages: "언어",
-                navGetQuote: "견적받기",
-                navContact: "연락처",
-                
-                // Hero Section
-                heroTitle: "NAATI 인증",
-                heroHighlight: "번역 서비스",
-                heroSubtitle: "NAATI 인증 번역사가 귀하의 문서를 번역해드립니다. 호주의 백패커, WHV 소지자 및 거주자에게 완벽합니다. 빠르고 신뢰할 수 있으며 공식적으로 인정받습니다.",
-                priceText: "문서당",
-                ctaButton: "24시간 내 견적 받기",
-                
-                // Services Section
-                servicesTitle: "번역 서비스",
-                servicesSubtitle: "호주 여행에 필요한 모든 유형의 문서를 번역해드립니다",
-                serviceDrivers: "운전면허증",
-                serviceDriversDesc: "운전면허증을 번역하여 호주에서 즉시 운전을 시작하세요",
-                serviceBirth: "출생증명서",
-                serviceBirthDesc: "비자 신청 및 법적 절차를 위한 공식 출생증명서 번역",
-                serviceMarriage: "결혼증명서",
-                serviceMarriageDesc: "가족 비자 신청을 위한 결혼증명서 인증 번역",
-                serviceAcademic: "학력 기록",
-                serviceAcademicDesc: "취업 또는 진학 지원을 위한 졸업장, 성적 증명서 및 교육 자격증",
-                servicePassport: "여권",
-                servicePassportDesc: "다양한 공식 절차 및 신청을 위한 여권 번역",
-                servicePolice: "범죄기록조회서",
-                servicePoliceDesc: "비자 신청에 필요한 범죄 기록 조회 번역",
-                serviceLegal: "법적 문서",
-                serviceLegalDesc: "공식 번역이 필요한 법원 문서, 계약서 및 기타 법적 서류",
-                serviceMedical: "의료 기록",
-                serviceMedicalDesc: "비자 및 보험 목적을 위한 의료 증명서 및 건강 기록",
-                serviceInsurance: "보험 청구",
-                serviceInsuranceDesc: "인증 번역이 필요한 보험 문서 및 청구서",
-                serviceOther: "기타 문서",
-                serviceOtherDesc: "NAATI 인증 번역사가 번역해야 하는 기타 공식 문서",
-                
-                // Languages Section
-                languagesTitle: "지원 언어",
-                languagesSubtitle: "NAATI 인증 번역사와 함께 이러한 언어에서 영어로 번역합니다",
-                
-                // Quote Section
-                quoteTitle: "견적 받기",
-                quoteSubtitle: "아래 양식을 작성하시면 24시간 내에 번역 견적을 받으실 수 있습니다",
-                formFirstName: "이름",
-                formLastName: "성",
-                formEmail: "이메일 주소",
-                formDocType: "문서 유형",
-                formSourceLang: "원본 언어",
-                formMessage: "추가 정보",
-                formMessagePlaceholder: "특정 요구사항, 마감일 또는 특별 지시사항을 알려주세요...",
-                formUpload1: "문서 업로드",
-                formUpload2: "추가 문서 (선택사항)",
-                uploadText: "📎 클릭하여 문서 업로드",
-                uploadDesc: "지원 형식: PDF, JPG, PNG (최대 10MB)",
-                volumeNote: "📧 대량 작업(5개 이상 문서)의 경우 특별 가격으로 직접 연락주세요:",
-                submitButton: "견적 요청 보내기",
-                
-                // Document Types
-                docSelectType: "문서 유형 선택",
-                docBirthCert: "출생증명서",
-                docMarriageCert: "결혼증명서",
-                docDriversLicense: "운전면허증",
-                docAcademicRecords: "학력 기록",
-                docPassport: "여권",
-                docDeathCert: "사망증명서",
-                docPoliceCheck: "범죄기록조회서",
-                docLegalDoc: "법적 문서",
-                docInsuranceClaims: "보험 청구",
-                docMedicalDoc: "의료 문서",
-                docImmigrationTrans: "이민 번역",
-                docOther: "기타",
-                
-                // Source Languages
-                selectSourceLang: "원본 언어 선택"
-            },
-            
-            ja: {
-                // Navigation
-                navHome: "ホーム",
-                navAbout: "会社について",
-                navServices: "サービス",
-                navLanguages: "言語",
-                navGetQuote: "見積もり",
-                navContact: "お問い合わせ",
-                
-                // Hero Section
-                heroTitle: "NAATI認定",
-                heroHighlight: "翻訳サービス",
-                heroSubtitle: "NAATI認定翻訳者があなたの書類を翻訳します。オーストラリアのバックパッカー、WHVホルダー、駐在員に最適です。迅速、信頼性があり、公式に認められています。",
-                priceText: "1文書あたり",
-                ctaButton: "24時間以内に見積もりを取得",
-                
-                // Services Section
-                servicesTitle: "翻訳サービス",
-                servicesSubtitle: "オーストラリアでの生活に必要なすべての種類の書類を翻訳します",
-                serviceDrivers: "運転免許証",
-                serviceDriversDesc: "運転免許証を翻訳して、オーストラリアですぐに運転を開始できます",
-                serviceBirth: "出生証明書",
-                serviceBirthDesc: "ビザ申請と法的手続きのための公式出生証明書翻訳",
-                serviceMarriage: "結婚証明書",
-                serviceMarriageDesc: "家族ビザ申請のための結婚証明書認定翻訳",
-                serviceAcademic: "学歴記録",
-                serviceAcademicDesc: "就職や進学申請のための卒業証書、成績証明書、教育証明書",
-                servicePassport: "パスポート",
-                servicePassportDesc: "様々な公式手続きや申請のためのパスポート翻訳",
-                servicePolice: "犯罪歴証明書",
-                servicePoliceDesc: "ビザ申請に必要な犯罪歴調査の翻訳",
-                serviceLegal: "法的文書",
-                serviceLegalDesc: "公式翻訳が必要な裁判所文書、契約書、その他の法的書類",
-                serviceMedical: "医療記録",
-                serviceMedicalDesc: "ビザと保険目的のための医療証明書と健康記録",
-                serviceInsurance: "保険請求",
-                serviceInsuranceDesc: "認定翻訳が必要な保険文書と請求書",
-                serviceOther: "その他の文書",
-                serviceOtherDesc: "NAATI認定翻訳者による翻訳が必要なその他の公式文書",
-                
-                // Languages Section
-                languagesTitle: "対応言語",
-                languagesSubtitle: "NAATI認定翻訳者により、これらの言語から英語に翻訳します",
-                
-                // Quote Section
-                quoteTitle: "見積もりを取得",
-                quoteSubtitle: "下記のフォームにご記入いただければ、24時間以内に翻訳の見積もりをお送りします",
-                formFirstName: "名",
-                formLastName: "姓",
-                formEmail: "メールアドレス",
-                formDocType: "文書の種類",
-                formSourceLang: "原文言語",
-                formMessage: "追加情報",
-                formMessagePlaceholder: "特定の要件、締切、特別な指示についてお聞かせください...",
-                formUpload1: "文書をアップロード",
-                formUpload2: "追加文書（オプション）",
-                uploadText: "📎 クリックして文書をアップロード",
-                uploadDesc: "対応形式: PDF、JPG、PNG（最大10MB）",
-                volumeNote: "📧 大量の文書（5つ以上）については、特別価格で直接お問い合わせください：",
-                submitButton: "見積もり依頼を送信",
-                
-                // Document Types
-                docSelectType: "文書の種類を選択",
-                docBirthCert: "出生証明書",
-                docMarriageCert: "結婚証明書",
-                docDriversLicense: "運転免許証",
-                docAcademicRecords: "学歴記録",
-                docPassport: "パスポート",
-                docDeathCert: "死亡証明書",
-                docPoliceCheck: "犯罪歴証明書",
-                docLegalDoc: "法的文書",
-                docInsuranceClaims: "保険請求",
-                docMedicalDoc: "医療文書",
-                docImmigrationTrans: "移民翻訳",
-                docOther: "その他",
-                
-                // Source Languages
-                selectSourceLang: "原文言語を選択"
-            },
-            
-            th: {
-                // Navigation
-                navHome: "หน้าหลัก",
-                navAbout: "เกี่ยวกับเรา",
-                navServices: "บริการ",
-                navLanguages: "ภาษา",
-                navGetQuote: "ขอใบเสนอราคา",
-                navContact: "ติดต่อ",
-                
-                // Hero Section
-                heroTitle: "บริการแปลเอกสาร",
-                heroHighlight: "รับรอง NAATI",
-                heroSubtitle: "ให้นักแปลที่ได้รับการรับรอง NAATI แปลเอกสารของคุณ เหมาะสำหรับแบ็กแพ็กเกอร์ ผู้ถือ WHV และชาวต่างชาติในออสเตรเลีย รวดเร็ว เชื่อถือได้ และได้รับการยอมรับอย่างเป็นทางการ",
-                priceText: "ต่อเอกสาร",
-                ctaButton: "รับใบเสนอราคาภายใน 24 ชั่วโมง",
-                
-                // Services Section
-                servicesTitle: "บริการแปลของเรา",
-                servicesSubtitle: "เราแปลเอกสารทุกประเภทที่จำเป็นสำหรับการเดินทางของคุณในออสเตรเลีย",
-                serviceDrivers: "ใบขับขี่",
-                serviceDriversDesc: "แปลใบขับขี่ของคุณเพื่อเริ่มขับรถในออสเตรเลียทันที",
-                serviceBirth: "ใบสูติบัตร",
-                serviceBirthDesc: "การแปลใบสูติบัตรอย่างเป็นทางการสำหรับการขอวีซ่าและขั้นตอนทางกฎหมาย",
-                serviceMarriage: "ใบสมรส",
-                serviceMarriageDesc: "การแปลใบสมรสที่ได้รับการรับรองสำหรับการขอวีซ่าครอบครัว",
-                serviceAcademic: "เอกสารการศึกษา",
-                serviceAcademicDesc: "ปริญญาบัตร ใบแสดงผลการเรียน และใบรับรองการศึกษาสำหรับการสมัครงานหรือเรียนต่อ",
-                servicePassport: "หนังสือเดินทาง",
-                servicePassportDesc: "การแปลหนังสือเดินทางสำหรับขั้นตอนทางการและการสมัครต่างๆ",
-                servicePolice: "หนังสือรับรองความประพฤติ",
-                servicePoliceDesc: "การแปลการตรวจสอบประวัติอาชญากรรมที่จำเป็นสำหรับการขอวีซ่า",
-                serviceLegal: "เอกสารทางกฎหมาย",
-                serviceLegalDesc: "เอกสารศาล สัญญา และเอกสารทางกฎหมายอื่นๆ ที่ต้องการการแปลอย่างเป็นทางการ",
-                serviceMedical: "เวชระเบียน",
-                serviceMedicalDesc: "ใบรับรองแพทย์และเวชระเบียนสำหรับวีซ่าและการประกันภัย",
-                serviceInsurance: "การเรียกร้องประกันภัย",
-                serviceInsuranceDesc: "เอกสารประกันภัยและการเรียกร้องที่ต้องการการแปลที่ได้รับการรับรอง",
-                serviceOther: "เอกสารอื่นๆ",
-                serviceOtherDesc: "เอกสารทางการอื่นๆ ที่คุณต้องการให้นักแปลที่ได้รับการรับรอง NAATI แปล",
-                
-                // Languages Section
-                languagesTitle: "ภาษาที่รองรับ",
-                languagesSubtitle: "เราแปลจากภาษาเหล่านี้เป็นภาษาอังกฤษด้วยนักแปลที่ได้รับการรับรอง NAATI",
-                
-                // Quote Section
-                quoteTitle: "ขอใบเสนอราคา",
-                quoteSubtitle: "กรอกแบบฟอร์มด้านล่างและรับใบเสนอราคาการแปลภายใน 24 ชั่วโมง",
-                formFirstName: "ชื่อ",
-                formLastName: "นามสกุล",
-                formEmail: "ที่อยู่อีเมล",
-                formDocType: "ประเภทเอกสาร",
-                formSourceLang: "ภาษาต้นฉบับ",
-                formMessage: "ข้อมูลเพิ่มเติม",
-                formMessagePlaceholder: "บอกเราเกี่ยวกับความต้องการเฉพาะ กำหนดเวลา หรือคำแนะนำพิเศษของคุณ...",
-                formUpload1: "อัปโหลดเอกสาร",
-                formUpload2: "เอกสารเพิ่มเติม (ไม่บังคับ)",
-                uploadText: "📎 คลิกเพื่ออัปโหลดเอกสารของคุณ",
-                uploadDesc: "รูปแบบที่รองรับ: PDF, JPG, PNG (สูงสุด 10MB)",
-                volumeNote: "📧 สำหรับปริมาณมาก (5+ เอกสาร) โปรดติดต่อเราโดยตรงสำหรับราคาพิเศษ:",
-                submitButton: "ส่งคำขอใบเสนอราคา",
-                
-                // Document Types
-                docSelectType: "เลือกประเภทเอกสาร",
-                docBirthCert: "ใบสูติบัตร",
-                docMarriageCert: "ใบสมรส",
-                docDriversLicense: "ใบขับขี่",
-                docAcademicRecords: "เอกสารการศึกษา",
-                docPassport: "หนังสือเดินทาง",
-                docDeathCert: "ใบมรณบัตร",
-                docPoliceCheck: "หนังสือรับรองความประพฤติ",
-                docLegalDoc: "เอกสารทางกฎหมาย",
-                docInsuranceClaims: "การเรียกร้องประกันภัย",
-                docMedicalDoc: "เอกสารทางการแพทย์",
-                docImmigrationTrans: "การแปลด้านการย้ายถิ่น",
-                docOther: "อื่นๆ",
-                
-                // Source Languages
-                selectSourceLang: "เลือกภาษาต้นฉบับ"
-            },
-            
-            vi: {
-                // Navigation
-                navHome: "Trang chủ",
-                navAbout: "Giới thiệu",
-                navServices: "Dịch vụ",
-                navLanguages: "Ngôn ngữ",
-                navGetQuote: "Báo giá",
-                navContact: "Liên hệ",
-                
-                // Hero Section
-                heroTitle: "Dịch thuật được",
-                heroHighlight: "Chứng nhận NAATI",
-                heroSubtitle: "Để các dịch giả được chứng nhận NAATI dịch tài liệu của bạn. Hoàn hảo cho backpacker, người có WHV và người nước ngoài tại Úc. Nhanh chóng, đáng tin cậy và được công nhận chính thức.",
-                priceText: "mỗi tài liệu",
-                ctaButton: "Nhận báo giá trong 24 giờ",
-                
-                // Services Section
-                servicesTitle: "Dịch vụ Dịch thuật",
-                servicesSubtitle: "Chúng tôi dịch tất cả các loại tài liệu cần thiết cho hành trình của bạn tại Úc",
-                serviceDrivers: "Bằng lái xe",
-                serviceDriversDesc: "Dịch bằng lái xe của bạn để bắt đầu lái xe tại Úc ngay lập tức",
-                serviceBirth: "Giấy khai sinh",
-                serviceBirthDesc: "Dịch giấy khai sinh chính thức cho đơn xin visa và thủ tục pháp lý",
-                serviceMarriage: "Giấy đăng ký kết hôn",
-                serviceMarriageDesc: "Dịch có chứng nhận giấy đăng ký kết hôn cho đơn xin visa gia đình",
-                serviceAcademic: "Hồ sơ học tập",
-                serviceAcademicDesc: "Bằng cấp, bảng điểm và chứng chỉ giáo dục cho đơn xin việc hoặc học tập",
-                servicePassport: "Hộ chiếu",
-                servicePassportDesc: "Dịch hộ chiếu cho các thủ tục chính thức và đơn xin khác nhau",
-                servicePolice: "Lý lịch tư pháp",
-                servicePoliceDesc: "Dịch kiểm tra lý lịch hình sự cần thiết cho đơn xin visa",
-                serviceLegal: "Tài liệu pháp lý",
-                serviceLegalDesc: "Tài liệu tòa án, hợp đồng và các giấy tờ pháp lý khác cần dịch chính thức",
-                serviceMedical: "Hồ sơ y tế",
-                serviceMedicalDesc: "Giấy chứng nhận y tế và hồ sơ sức khỏe cho mục đích visa và bảo hiểm",
-                serviceInsurance: "Yêu cầu bảo hiểm",
-                serviceInsuranceDesc: "Tài liệu bảo hiểm và yêu cầu cần dịch có chứng nhận",
-                serviceOther: "Tài liệu khác",
-                serviceOtherDesc: "Bất kỳ tài liệu chính thức nào khác bạn cần dịch bởi dịch giả được chứng nhận NAATI",
-                
-                // Languages Section
-                languagesTitle: "Ngôn ngữ Hỗ trợ",
-                languagesSubtitle: "Chúng tôi dịch từ các ngôn ngữ này sang tiếng Anh với dịch giả được chứng nhận NAATI",
-                
-                // Quote Section
-                quoteTitle: "Nhận Báo giá",
-                quoteSubtitle: "Điền vào biểu mẫu bên dưới và nhận báo giá dịch thuật trong vòng 24 giờ",
-                formFirstName: "Tên",
-                formLastName: "Họ",
-                formEmail: "Địa chỉ Email",
-                formDocType: "Loại tài liệu",
-                formSourceLang: "Ngôn ngữ gốc",
-                formMessage: "Thông tin bổ sung",
-                formMessagePlaceholder: "Hãy cho chúng tôi biết về yêu cầu cụ thể, thời hạn hoặc hướng dẫn đặc biệt của bạn...",
-                formUpload1: "Tải lên tài liệu",
-                formUpload2: "Tài liệu bổ sung (Tùy chọn)",
-                uploadText: "📎 Nhấp để tải lên tài liệu của bạn",
-                uploadDesc: "Định dạng hỗ trợ: PDF, JPG, PNG (Tối đa 10MB)",
-                volumeNote: "📧 Đối với khối lượng lớn (5+ tài liệu), vui lòng liên hệ trực tiếp với chúng tôi để được báo giá đặc biệt:",
-                submitButton: "Gửi yêu cầu báo giá",
-                
-                // Document Types
-                docSelectType: "Chọn loại tài liệu",
-                docBirthCert: "Giấy khai sinh",
-                docMarriageCert: "Giấy đăng ký kết hôn",
-                docDriversLicense: "Bằng lái xe",
-                docAcademicRecords: "Hồ sơ học tập",
-                docPassport: "Hộ chiếu",
-                docDeathCert: "Giấy chứng tử",
-                docPoliceCheck: "Lý lịch tư pháp",
-                docLegalDoc: "Tài liệu pháp lý",
-                docInsuranceClaims: "Yêu cầu bảo hiểm",
-                docMedicalDoc: "Tài liệu y tế",
-                docImmigrationTrans: "Dịch thuật nhập cư",
-                docOther: "Khác",
-                
-                // Source Languages
-                selectSourceLang: "Chọn ngôn ngữ gốc"
-            }
-        };
-
-        // Current language state
-        let currentLanguage = 'en';
-
-        // Language selector functionality
-        function toggleLanguageDropdown() {
-            const dropdown = document.getElementById('langDropdown');
-            dropdown.classList.toggle('active');
-        }
-
-        function setLanguage(lang) {
-            const languages = {
-                'en': '🇬🇧 English',
-                'fr': '🇫🇷 Français',
-                'es': '🇪🇸 Español',
-                'pt': '🇵🇹 Português',
-                'it': '🇮🇹 Italiano',
-                'de': '🇩🇪 Deutsch',
-                'zh': '🇨🇳 中文',
-                'ko': '🇰🇷 한국어',
-                'ja': '🇯🇵 日本語',
-                'th': '🇹🇭 ไทย',
-                'vi': '🇻🇳 Tiếng Việt'
-            };
-            
-            // Update button text
-            document.querySelector('.lang-toggle').innerHTML = languages[lang] + ' ▼';
-            document.getElementById('langDropdown').classList.remove('active');
-            
-            // Update language and translate content
-            currentLanguage = lang;
-            translatePage(lang);
-        }
-
-        function translatePage(lang) {
-            const t = translations[lang] || translations.en;
-            
-            // Update navigation
-            const navItems = document.querySelectorAll('.nav-menu a');
-            if (navItems[0]) navItems[0].textContent = t.navHome;
-            if (navItems[1]) navItems[1].textContent = t.navAbout;
-            if (navItems[2]) navItems[2].textContent = t.navServices;
-            if (navItems[3]) navItems[3].textContent = t.navLanguages;
-            if (navItems[4]) navItems[4].textContent = t.navGetQuote;
-            if (navItems[5]) navItems[5].textContent = t.navContact;
-            
-            // Update hero section
-            const heroTitle = document.querySelector('.hero-text h1');
-            if (heroTitle) {
-                heroTitle.innerHTML = `${t.heroTitle} <span class="highlight">${t.heroHighlight}</span>`;
-            }
-            
-            const heroSubtitle = document.querySelector('.hero-subtitle');
-            if (heroSubtitle) heroSubtitle.textContent = t.heroSubtitle;
-            
-            const priceDesc = document.querySelector('.price-desc');
-            if (priceDesc) priceDesc.textContent = t.priceText;
-            
-            const ctaButton = document.querySelector('.cta-button');
-            if (ctaButton) ctaButton.textContent = t.ctaButton;
-            
-            // Update services section
-            const servicesTitle = document.querySelector('.services .section-title');
-            if (servicesTitle) servicesTitle.textContent = t.servicesTitle;
-            
-            const servicesSubtitle = document.querySelector('.services .section-subtitle');
-            if (servicesSubtitle) servicesSubtitle.textContent = t.servicesSubtitle;
-            
-            // Update service cards
-            const serviceCards = document.querySelectorAll('.service-card');
-            const serviceTexts = [
-                {title: t.serviceDrivers, desc: t.serviceDriversDesc},
-                {title: t.serviceBirth, desc: t.serviceBirthDesc},
-                {title: t.serviceMarriage, desc: t.serviceMarriageDesc},
-                {title: t.serviceAcademic, desc: t.serviceAcademicDesc},
-                {title: t.servicePassport, desc: t.servicePassportDesc},
-                {title: t.servicePolice, desc: t.servicePoliceDesc},
-                {title: t.serviceLegal, desc: t.serviceLegalDesc},
-                {title: t.serviceMedical, desc: t.serviceMedicalDesc},
-                {title: t.serviceInsurance, desc: t.serviceInsuranceDesc},
-                {title: t.serviceOther, desc: t.serviceOtherDesc}
-            ];
-            
-            serviceCards.forEach((card, index) => {
-                if (serviceTexts[index]) {
-                    const title = card.querySelector('h3');
-                    const desc = card.querySelector('p');
-                    if (title) title.textContent = serviceTexts[index].title;
-                    if (desc) desc.textContent = serviceTexts[index].desc;
-                }
-            });
-            
-            // Update languages section
-            const languagesTitle = document.querySelector('.languages .section-title');
-            if (languagesTitle) languagesTitle.textContent = t.languagesTitle;
-            
-            const languagesSubtitle = document.querySelector('.languages .section-subtitle');
-            if (languagesSubtitle) languagesSubtitle.textContent = t.languagesSubtitle;
-            
-            // Update quote section
-            const quoteTitle = document.querySelector('.quote-header h2');
-            if (quoteTitle) quoteTitle.textContent = t.quoteTitle;
-            
-            const quoteSubtitle = document.querySelector('.quote-header p');
-            if (quoteSubtitle) quoteSubtitle.textContent = t.quoteSubtitle;
-            
-            // Update form labels
-            const formLabels = document.querySelectorAll('.form-group label');
-            const labelTexts = [
-                t.formFirstName + ' *',
-                t.formLastName + ' *',
-                t.formEmail + ' *',
-                t.formDocType + ' *',
-                t.formSourceLang + ' *',
-                t.formMessage,
-                t.formUpload1,
-                t.formUpload2
-            ];
-            
-            formLabels.forEach((label, index) => {
-                if (labelTexts[index] && !label.textContent.includes('*') || labelTexts[index]) {
-                    const currentText = label.textContent;
-                    const hasAsterisk = currentText.includes('*');
-                    if (labelTexts[index]) {
-                        label.textContent = labelTexts[index];
-                    }
-                }
-            });
-            
-            // Update form placeholders and text
-            const messagePlaceholder = document.getElementById('message');
-            if (messagePlaceholder) messagePlaceholder.placeholder = t.formMessagePlaceholder;
-            
-            const uploadTexts = document.querySelectorAll('.file-upload-text');
-            uploadTexts.forEach(text => {
-                text.textContent = t.uploadText;
-            });
-            
-            const uploadDescs = document.querySelectorAll('.file-upload-desc');
-            uploadDescs.forEach(desc => {
-                desc.textContent = t.uploadDesc;
-            });
-            
-            const volumeNote = document.querySelector('.volume-note');
-            if (volumeNote) {
-                volumeNote.innerHTML = `${t.volumeNote} <strong>translation@translatenow.com.au</strong>`;
-            }
-            
-            const submitButton = document.querySelector('.submit-button');
-            if (submitButton) submitButton.textContent = t.submitButton;
-            
-            // Update document type options
-            const docTypeSelect = document.getElementById('documentType');
-            if (docTypeSelect) {
-                const options = docTypeSelect.querySelectorAll('option');
-                const optionTexts = [
-                    t.docSelectType,
-                    t.docBirthCert,
-                    t.docMarriageCert,
-                    t.docDriversLicense,
-                    t.docAcademicRecords,
-                    t.docPassport,
-                    t.docDeathCert,
-                    t.docPoliceCheck,
-                    t.docLegalDoc,
-                    t.docInsuranceClaims,
-                    t.docMedicalDoc,
-                    t.docImmigrationTrans,
-                    t.docOther
-                ];
-                
-                options.forEach((option, index) => {
-                    if (optionTexts[index]) {
-                        option.textContent = optionTexts[index];
-                    }
-                });
-            }
-            
-            // Update source language options
-            const sourceLangSelect = document.getElementById('sourceLanguage');
-            if (sourceLangSelect) {
-                const firstOption = sourceLangSelect.querySelector('option[value=""]');
-                if (firstOption) firstOption.textContent = t.selectSourceLang;
-            }
-            
-            // Update page title and meta description
-            document.title = `TranslateNow - ${t.heroTitle} ${t.heroHighlight}`;
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const langSelector = document.querySelector('.language-selector');
-            if (!langSelector.contains(event.target)) {
-                document.getElementById('langDropdown').classList.remove('active');
-            }
-        });
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2136,19 +1030,7 @@
             });
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'var(--white)';
-                header.style.backdropFilter = 'none';
-            }
-        });
-
-        // Intersection Observer for fade-in animations
+        // Animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -2157,149 +1039,18 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // File upload handling
-        function handleFileSelect(input, previewId) {
-            const file = input.files[0];
-            const preview = document.getElementById(previewId);
-            
-            if (file) {
-                const fileSize = (file.size / 1024 / 1024).toFixed(2); // MB
-                const fileName = file.name;
-                
-                if (file.size > 10 * 1024 * 1024) { // 10MB limit
-                    alert('File size must be less than 10MB');
-                    input.value = '';
-                    return;
-                }
-                
-                preview.innerHTML = `
-                    <div style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
-                        <span>📄 ${fileName} (${fileSize}MB)</span>
-                        <button type="button" onclick="removeFile('${input.id}', '${previewId}')" style="background: #e74c3c; color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer;">✕</button>
-                    </div>
-                `;
-            }
-        }
-
-        function removeFile(inputId, previewId) {
-            document.getElementById(inputId).value = '';
-            document.getElementById(previewId).innerHTML = '';
-        }
-
-        // Form validation
-        function validateField(fieldId, validationFn, errorMessage) {
-            const field = document.getElementById(fieldId);
-            const errorDiv = document.getElementById(fieldId + 'Error');
-            
-            if (!validationFn(field.value)) {
-                field.classList.add('error');
-                field.classList.remove('success');
-                errorDiv.textContent = errorMessage;
-                return false;
-            } else {
-                field.classList.add('success');
-                field.classList.remove('error');
-                errorDiv.textContent = '';
-                return true;
-            }
-        }
-
-        // Real-time validation
-        document.getElementById('firstName').addEventListener('blur', function() {
-            validateField('firstName', val => val.trim().length >= 2, 'First name must be at least 2 characters');
-        });
-
-        document.getElementById('lastName').addEventListener('blur', function() {
-            validateField('lastName', val => val.trim().length >= 2, 'Last name must be at least 2 characters');
-        });
-
-        document.getElementById('email').addEventListener('blur', function() {
-            validateField('email', val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), 'Please enter a valid email address');
-        });
-
-        document.getElementById('documentType').addEventListener('change', function() {
-            validateField('documentType', val => val !== '', 'Please select a document type');
-        });
-
-        document.getElementById('sourceLanguage').addEventListener('change', function() {
-            validateField('sourceLanguage', val => val !== '', 'Please select a source language');
-        });
-
-        // Form submission
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Validate all required fields
-            const isFirstNameValid = validateField('firstName', val => val.trim().length >= 2, 'First name must be at least 2 characters');
-            const isLastNameValid = validateField('lastName', val => val.trim().length >= 2, 'Last name must be at least 2 characters');
-            const isEmailValid = validateField('email', val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), 'Please enter a valid email address');
-            const isDocumentTypeValid = validateField('documentType', val => val !== '', 'Please select a document type');
-            const isSourceLanguageValid = validateField('sourceLanguage', val => val !== '', 'Please select a source language');
-            
-            if (isFirstNameValid && isLastNameValid && isEmailValid && isDocumentTypeValid && isSourceLanguageValid) {
-                // Simulate form submission
-                const submitButton = document.querySelector('.submit-button');
-                const originalText = submitButton.textContent;
-                
-                submitButton.textContent = 'Sending...';
-                submitButton.disabled = true;
-                
-                setTimeout(() => {
-                    alert('Thank you! Your quote request has been submitted. We will contact you within 24 hours with your personalized quote.');
-                    this.reset();
-                    // Clear file previews
-                    document.getElementById('filePreview1').innerHTML = '';
-                    document.getElementById('filePreview2').innerHTML = '';
-                    // Reset all field styles
-                    document.querySelectorAll('.form-control').forEach(field => {
-                        field.classList.remove('success', 'error');
-                    });
-                    document.querySelectorAll('.error-message').forEach(error => {
-                        error.textContent = '';
-                    });
-                    
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                }, 2000);
-            } else {
-                // Scroll to first error
-                const firstError = document.querySelector('.form-control.error');
-                if (firstError) {
-                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    firstError.focus();
-                }
-            }
-        });
-
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            // Mobile menu implementation would go here
-            console.log('Mobile menu toggled');
-        });
-
-        // Add some dynamic pricing based on document type
-        document.getElementById('documentType').addEventListener('change', function() {
-            const priceElement = document.querySelector('.price');
-            const documentType = this.value;
-            
-            // Pricing logic (keeping base price for simplicity)
-            let price = 39;
-            
-            // Update price display with animation
-            priceElement.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                priceElement.textContent = `€${price}`;
-                priceElement.style.transform = 'scale(1)';
-            }, 150);
+        // Apply to all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
         });
     </script>
 </body>
