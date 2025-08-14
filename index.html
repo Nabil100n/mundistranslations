@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHV Australia Express - Traduction & Services Officiels</title>
+    <meta name="description" content="Traduction officielle 72h garantie + Pack complet pour votre WHV en Australie. TFN, ABN, compte bancaire et plus.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --light-blue: #3b82f6;
+            --gold: #f59e0b;
+            --white: #ffffff;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --success: #10b981;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-main {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .language-btn {
+            background: var(--gray-100);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: none;
+            min-width: 120px;
+        }
+
+        .language-dropdown.show {
+            display: block;
+        }
+
+        .language-option {
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .language-option:hover {
+            background: var(--gray-100);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        .nav-links.mobile-open {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .urgency-badge {
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .cta-primary {
+            background: var(--gold);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-primary:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid var(--white);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-secondary:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+            background: var(--gray-100);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--primary-blue));
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 1rem 0;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features i {
+            color: var(--success);
+            margin-right: 0.5rem;
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 4rem 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step h4 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+            background: var(--gray-100);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-rating {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 4rem 0;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-answer.show {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 4rem 0;
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--white);
+            transition: background 0.3s;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-800);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+                order: 3;
+            }
+
+            .logo {
+                order: 1;
+            }
+
+            .language-selector {
+                order: 2;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                order: 4;
+                background: var(--white);
+                padding: 1rem 0;
+                margin-top: 1rem;
+                border-top: 1px solid var(--gray-200);
+                gap: 1rem;
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
+                margin-top: 70px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.1;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .urgency-badge {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-primary, .cta-secondary {
+                display: block;
+                width: 100%;
+                max-width: 300px;
+                margin: 0.5rem auto;
+                padding: 1.2rem 2rem;
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .services {
+                padding: 3rem 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+                margin: 0 auto;
+                max-width: 100%;
+            }
+
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .service-price {
+                font-size: 1.8rem;
+            }
+
+            .service-features {
+                margin: 1rem 0;
+            }
+
+            .service-features li {
+                padding: 0.4rem 0;
+                font-size: 0.9rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .step {
+                padding: 1.5rem 1rem;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .step h4 {
+                font-size: 1.1rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonial {
+                padding: 1.5rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .faq-answer {
+                font-size: 0.9rem;
+            }
+
+            .faq-answer.show {
+                padding: 1rem;
+            }
+
+            .contact {
+                padding: 3rem 0;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-method {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                padding: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .language-dropdown {
+                right: auto;
+                left: 0;
+                min-width: 140px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .logo-main {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .navbar {
+                padding: 0.8rem;
+            }
+
+            .service-card {
+                padding: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .cta-primary, .cta-secondary {
+                padding: 1rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Hidden elements for translation */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">WHV Express</div>
+                    <div class="logo-sub">Australia</div>
+                </div>
+            </div>
+            
+            <div class="language-selector">
+                <button class="language-btn" onclick="toggleLanguageDropdown()">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-language">FR</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="language-dropdown" id="language-dropdown">
+                    <div class="language-option" onclick="changeLanguage('fr')">🇫🇷 Français</div>
+                    <div class="language-option" onclick="changeLanguage('en')">🇺🇸 English</div>
+                    <div class="language-option" onclick="changeLanguage('es')">🇪🇸 Español</div>
+                    <div class="language-option" onclick="changeLanguage('it')">🇮🇹 Italiano</div>
+                    <div class="language-option" onclick="changeLanguage('de')">🇩🇪 Deutsch</div>
+                </div>
+            </div>
+
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#services" data-translate="nav_services">Services</a></li>
+                <li><a href="#how-it-works" data-translate="nav_how">Comment ça marche</a></li>
+                <li><a href="#testimonials" data-translate="nav_testimonials">Témoignages</a></li>
+                <li><a href="#faq" data-translate="nav_faq">FAQ</a></li>
+                <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="urgency-badge" data-translate="urgency_badge">
+                <i class="fas fa-clock"></i> Traduction garantie en 72h
+            </div>
+            <h1 data-translate="hero_title">Votre WHV Australie simplifié</h1>
+            <p data-translate="hero_subtitle">Traduction officielle express + Pack complet pour réussir votre arrivée en Australie</p>
+            <div>
+                <a href="#services" class="cta-primary" data-translate="cta_translation">
+                    <i class="fas fa-file-alt"></i> Commander ma traduction
+                </a>
+                <a href="#starter-pack" class="cta-secondary" data-translate="cta_pack">
+                    <i class="fas fa-suitcase"></i> Découvrir le Starter Pack
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title" data-translate="services_title">Nos Services Express</h2>
+            
+            <div class="services-grid">
+                <!-- Translation Service -->
+                <div class="service-card">
+                    <i class="fas fa-language service-icon"></i>
+                    <h3 data-translate="translation_title">Traduction Express WHV</h3>
+                    <div class="service-price" data-translate="translation_price">À partir de 89€</div>
+                    <p data-translate="translation_description">Traduction officielle certifiée de vos documents administratifs pour l'Australie. Garantie 72h ou remboursé.</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-translate="feature_certified">Traduction certifiée officielle</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature_fast">Livraison garantie 72h</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature_accepted">Acceptée par l'immigration australienne</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature_support">Support WhatsApp inclus</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature_revision">1 révision gratuite</span></li>
+                    </ul>
+                    
+                    <button class="cta-primary" onclick="openTranslationForm()" data-translate="btn_order_translation">
+                        <i class="fas fa-upload"></i> Commander maintenant
+                    </button>
+                </div>
+
+                <!-- Starter Pack -->
+                <div class="service-card" id="starter-pack">
+                    <i class="fas fa-suitcase service-icon"></i>
+                    <h3 data-translate="pack_title">Starter Pack WHV Australie</h3>
+                    <div class="service-price" data-translate="pack_price">297€</div>
+                    <p data-translate="pack_description">Pack complet clé en main pour une arrivée réussie en Australie. Tous vos documents essentiels obtenus pour vous.</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-translate="pack_tfn">Obtention TFN (Tax File Number)</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="pack_abn">Obtention ABN (Australian Business Number)</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="pack_sim">Carte SIM australienne prépayée</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="pack_bank">Aide ouverture compte bancaire</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="pack_insurance">Assurance santé partenaire</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="pack_guide">Guide logement + bons plans</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="pack_support">Support WhatsApp 30 jours</span></li>
+                    </ul>
+                    
+                    <button class="cta-primary" onclick="openPackForm()" data-translate="btn_order_pack">
+                        <i class="fas fa-shopping-cart"></i> Réserver mon pack
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title" data-translate="how_title">Comment ça marche ?</h2>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4 data-translate="step1_title">Uploadez vos documents</h4>
+                    <p data-translate="step1_desc">Téléchargez vos documents via notre formulaire sécurisé. Photos ou scans acceptés.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4 data-translate="step2_title">Paiement sécurisé</h4>
+                    <p data-translate="step2_desc">Réglez en ligne via Stripe. Paiement 100% sécurisé et crypté.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4 data-translate="step3_title">Réception rapide</h4>
+                    <p data-translate="step3_desc">Recevez vos documents traduits par email sous 72h maximum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-translate="testimonials_title">Ils nous font confiance</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text" data-translate="testimonial1">"Service parfait ! J'ai reçu ma traduction en 48h et mon visa a été accepté du premier coup. Le starter pack m'a fait gagner des semaines."</p>
+                    <div class="testimonial-author">Marie, 24 ans - Lyon</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text" data-translate="testimonial2">"Équipe super réactive sur WhatsApp. Tous mes documents ont été traités rapidement et j'ai pu partir serein en Australie."</p>
+                    <div class="testimonial-author">Thomas, 26 ans - Paris</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text" data-translate="testimonial3">"Le pack complet vaut vraiment le coup. TFN et ABN obtenus en quelques jours, plus tous les conseils pour bien s'installer."</p>
+                    <div class="testimonial-author">Léa, 23 ans - Marseille</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-translate="faq_title">Questions Fréquentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span data-translate="faq1_q">Mes traductions seront-elles acceptées par l'immigration australienne ?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p data-translate="faq1_a">Absolument ! Nos traductions sont certifiées et réalisées par des traducteurs agréés NAATI. Elles sont officiellement reconnues par l'immigration australienne.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span data-translate="faq2_q">Que se passe-t-il si ma traduction n'est pas prête en 72h ?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p data-translate="faq2_a">Nous remboursons intégralement votre commande si nous ne respectons pas notre engagement de 72h. C'est notre garantie qualité.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span data-translate="faq3_q">Le Starter Pack comprend-il vraiment l'obtention du TFN et ABN ?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p data-translate="faq3_a">Oui ! Nous nous occupons de toutes les démarches administratives pour vous. Vous recevrez vos numéros TFN et ABN directement par email.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span data-translate="faq4_q">Puis-je commander uniquement la traduction sans le pack ?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p data-translate="faq4_a">Bien sûr ! Nos services sont indépendants. Vous pouvez commander uniquement la traduction, puis ajouter le Starter Pack plus tard si vous le souhaitez.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span data-translate="faq5_q">Acceptez-vous les paiements en plusieurs fois ?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p data-translate="faq5_a">Pour le Starter Pack, nous proposons un paiement en 3 fois sans frais via Stripe. Contactez-nous pour plus d'informations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-translate="contact_title">Une question ? Contactez-nous</h2>
+            <p data-translate="contact_subtitle">Notre équipe vous répond rapidement pour vous accompagner</p>
+            
+            <div class="contact-methods">
+                <a href="mailto:contact@whv-australia-express.com" class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <span data-translate="contact_email">contact@whv-australia-express.com</span>
+                </a>
+                <a href="https://wa.me/33123456789" class="contact-method" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-translate="contact_whatsapp">WhatsApp Support</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" data-translate="footer_legal">Mentions légales</a>
+                <a href="#" data-translate="footer_terms">CGV</a>
+                <a href="#" data-translate="footer_privacy">Politique de confidentialité</a>
+                <a href="#" data-translate="footer_contact">Contact</a>
+            </div>
+            <p data-translate="footer_copyright">&copy; 2025 WHV Australia Express. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language data
+        const translations = {
+            fr: {
+                nav_services: "Services",
+                nav_how: "Comment ça marche",
+                nav_testimonials: "Témoignages",
+                nav_faq: "FAQ",
+                nav_contact: "Contact",
+                urgency_badge: "Traduction garantie en 72h",
+                hero_title: "Votre WHV Australie simplifié",
+                hero_subtitle: "Traduction officielle express + Pack complet pour réussir votre arrivée en Australie",
+                cta_translation: "Commander ma traduction",
+                cta_pack: "Découvrir le Starter Pack",
+                services_title: "Nos Services Express",
+                translation_title: "Traduction Express WHV",
+                translation_price: "À partir de 89€",
+                translation_description: "Traduction officielle certifiée de vos documents administratifs pour l'Australie. Garantie 72h ou remboursé.",
+                feature_certified: "Traduction certifiée officielle",
+                feature_fast: "Livraison garantie 72h",
+                feature_accepted: "Acceptée par l'immigration australienne",
+                feature_support: "Support WhatsApp inclus",
+                feature_revision: "1 révision gratuite",
+                btn_order_translation: "Commander maintenant",
+                pack_title: "Starter Pack WHV Australie",
+                pack_price: "297€",
+                pack_description: "Pack complet clé en main pour une arrivée réussie en Australie. Tous vos documents essentiels obtenus pour vous.",
+                pack_tfn: "Obtention TFN (Tax File Number)",
+                pack_abn: "Obtention ABN (Australian Business Number)",
+                pack_sim: "Carte SIM australienne prépayée",
+                pack_bank: "Aide ouverture compte bancaire",
+                pack_insurance: "Assurance santé partenaire",
+                pack_guide: "Guide logement + bons plans",
+                pack_support: "Support WhatsApp 30 jours",
+                btn_order_pack: "Réserver mon pack",
+                how_title: "Comment ça marche ?",
+                step1_title: "Uploadez vos documents",
+                step1_desc: "Téléchargez vos documents via notre formulaire sécurisé. Photos ou scans acceptés.",
+                step2_title: "Paiement sécurisé",
+                step2_desc: "Réglez en ligne via Stripe. Paiement 100% sécurisé et crypté.",
+                step3_title: "Réception rapide",
+                step3_desc: "Recevez vos documents traduits par email sous 72h maximum.",
+                testimonials_title: "Ils nous font confiance",
+                testimonial1: "Service parfait ! J'ai reçu ma traduction en 48h et mon visa a été accepté du premier coup. Le starter pack m'a fait gagner des semaines.",
+                testimonial2: "Équipe super réactive sur WhatsApp. Tous mes documents ont été traités rapidement et j'ai pu partir serein en Australie.",
+                testimonial3: "Le pack complet vaut vraiment le coup. TFN et ABN obtenus en quelques jours, plus tous les conseils pour bien s'installer.",
+                faq_title: "Questions Fréquentes",
+                faq1_q: "Mes traductions seront-elles acceptées par l'immigration australienne ?",
+                faq1_a: "Absolument ! Nos traductions sont certifiées et réalisées par des traducteurs agréés NAATI. Elles sont officiellement reconnues par l'immigration australienne.",
+                faq2_q: "Que se passe-t-il si ma traduction n'est pas prête en 72h ?",
+                faq2_a: "Nous remboursons intégralement votre commande si nous ne respectons pas notre engagement de 72h. C'est notre garantie qualité.",
+                faq3_q: "Le Starter Pack comprend-il vraiment l'obtention du TFN et ABN ?",
+                faq3_a: "Oui ! Nous nous occupons de toutes les démarches administratives pour vous. Vous recevrez vos numéros TFN et ABN directement par email.",
+                faq4_q: "Puis-je commander uniquement la traduction sans le pack ?",
+                faq4_a: "Bien sûr ! Nos services sont indépendants. Vous pouvez commander uniquement la traduction, puis ajouter le Starter Pack plus tard si vous le souhaitez.",
+                faq5_q: "Acceptez-vous les paiements en plusieurs fois ?",
+                faq5_a: "Pour le Starter Pack, nous proposons un paiement en 3 fois sans frais via Stripe. Contactez-nous pour plus d'informations.",
+                contact_title: "Une question ? Contactez-nous",
+                contact_subtitle: "Notre équipe vous répond rapidement pour vous accompagner",
+                contact_email: "contact@whv-australia-express.com",
+                contact_whatsapp: "WhatsApp Support",
+                footer_legal: "Mentions légales",
+                footer_terms: "CGV",
+                footer_privacy: "Politique de confidentialité",
+                footer_contact: "Contact",
+                footer_copyright: "© 2025 WHV Australia Express. Tous droits réservés."
+            },
+            en: {
+                nav_services: "Services",
+                nav_how: "How it works",
+                nav_testimonials: "Testimonials",
+                nav_faq: "FAQ",
+                nav_contact: "Contact",
+                urgency_badge: "Translation guaranteed in 72h",
+                hero_title: "Your WHV Australia simplified",
+                hero_subtitle: "Express official translation + Complete pack for a successful arrival in Australia",
+                cta_translation: "Order my translation",
+                cta_pack: "Discover the Starter Pack",
+                services_title: "Our Express Services",
+                translation_title: "WHV Express Translation",
+                translation_price: "From $89",
+                translation_description: "Official certified translation of your administrative documents for Australia. 72h guarantee or refund.",
+                feature_certified: "Official certified translation",
+                feature_fast: "72h guaranteed delivery",
+                feature_accepted: "Accepted by Australian immigration",
+                feature_support: "WhatsApp support included",
+                feature_revision: "1 free revision",
+                btn_order_translation: "Order now",
+                pack_title: "WHV Australia Starter Pack",
+                pack_price: "$297",
+                pack_description: "Complete turnkey pack for a successful arrival in Australia. All your essential documents obtained for you.",
+                pack_tfn: "TFN (Tax File Number) application",
+                pack_abn: "ABN (Australian Business Number) application",
+                pack_sim: "Australian prepaid SIM card",
+                pack_bank: "Bank account opening assistance",
+                pack_insurance: "Partner health insurance",
+                pack_guide: "Accommodation guide + tips",
+                pack_support: "30-day WhatsApp support",
+                btn_order_pack: "Book my pack",
+                how_title: "How it works?",
+                step1_title: "Upload your documents",
+                step1_desc: "Upload your documents via our secure form. Photos or scans accepted.",
+                step2_title: "Secure payment",
+                step2_desc: "Pay online via Stripe. 100% secure and encrypted payment.",
+                step3_title: "Fast delivery",
+                step3_desc: "Receive your translated documents by email within 72h maximum.",
+                testimonials_title: "They trust us",
+                testimonial1: "Perfect service! I received my translation in 48h and my visa was accepted on the first try. The starter pack saved me weeks.",
+                testimonial2: "Super responsive team on WhatsApp. All my documents were processed quickly and I was able to leave for Australia worry-free.",
+                testimonial3: "The complete pack is really worth it. TFN and ABN obtained in a few days, plus all the advice to settle in properly.",
+                faq_title: "Frequently Asked Questions",
+                faq1_q: "Will my translations be accepted by Australian immigration?",
+                faq1_a: "Absolutely! Our translations are certified and performed by NAATI-accredited translators. They are officially recognized by Australian immigration.",
+                faq2_q: "What happens if my translation is not ready in 72h?",
+                faq2_a: "We fully refund your order if we don't meet our 72h commitment. It's our quality guarantee.",
+                faq3_q: "Does the Starter Pack really include obtaining TFN and ABN?",
+                faq3_a: "Yes! We take care of all administrative procedures for you. You will receive your TFN and ABN numbers directly by email.",
+                faq4_q: "Can I order only the translation without the pack?",
+                faq4_a: "Of course! Our services are independent. You can order only the translation, then add the Starter Pack later if you wish.",
+                faq5_q: "Do you accept split payments?",
+                faq5_a: "For the Starter Pack, we offer payment in 3 installments without fees via Stripe. Contact us for more information.",
+                contact_title: "A question? Contact us",
+                contact_subtitle: "Our team responds quickly to support you",
+                contact_email: "contact@whv-australia-express.com",
+                contact_whatsapp: "WhatsApp Support",
+                footer_legal: "Legal notices",
+                footer_terms: "Terms & Conditions",
+                footer_privacy: "Privacy policy",
+                footer_contact: "Contact",
+                footer_copyright: "© 2025 WHV Australia Express. All rights reserved."
+            },
+            es: {
+                nav_services: "Servicios",
+                nav_how: "Cómo funciona",
+                nav_testimonials: "Testimonios",
+                nav_faq: "FAQ",
+                nav_contact: "Contacto",
+                urgency_badge: "Traducción garantizada en 72h",
+                hero_title: "Tu WHV Australia simplificado",
+                hero_subtitle: "Traducción oficial express + Pack completo para un arribo exitoso a Australia",
+                cta_translation: "Pedir mi traducción",
+                cta_pack: "Descubrir el Starter Pack",
+                services_title: "Nuestros Servicios Express",
+                translation_title: "Traducción Express WHV",
+                translation_price: "Desde 89€",
+                translation_description: "Traducción oficial certificada de tus documentos administrativos para Australia. Garantía 72h o reembolso.",
+                feature_certified: "Traducción certificada oficial",
+                feature_fast: "Entrega garantizada 72h",
+                feature_accepted: "Aceptada por inmigración australiana",
+                feature_support: "Soporte WhatsApp incluido",
+                feature_revision: "1 revisión gratuita",
+                btn_order_translation: "Pedir ahora",
+                pack_title: "Starter Pack WHV Australia",
+                pack_price: "297€",
+                pack_description: "Pack completo llave en mano para un arribo exitoso a Australia. Todos tus documentos esenciales obtenidos para ti.",
+                pack_tfn: "Obtención TFN (Tax File Number)",
+                pack_abn: "Obtención ABN (Australian Business Number)",
+                pack_sim: "Tarjeta SIM australiana prepaga",
+                pack_bank: "Ayuda apertura cuenta bancaria",
+                pack_insurance: "Seguro de salud asociado",
+                pack_guide: "Guía alojamiento + consejos",
+                pack_support: "Soporte WhatsApp 30 días",
+                btn_order_pack: "Reservar mi pack"
+            },
+            it: {
+                nav_services: "Servizi",
+                nav_how: "Come funziona",
+                nav_testimonials: "Testimonianze",
+                nav_faq: "FAQ",
+                nav_contact: "Contatto",
+                urgency_badge: "Traduzione garantita in 72h",
+                hero_title: "Il tuo WHV Australia semplificato",
+                hero_subtitle: "Traduzione ufficiale express + Pack completo per un arrivo di successo in Australia",
+                cta_translation: "Ordina la mia traduzione",
+                cta_pack: "Scopri lo Starter Pack",
+                services_title: "I Nostri Servizi Express",
+                translation_title: "Traduzione Express WHV",
+                translation_price: "Da 89€",
+                translation_description: "Traduzione ufficiale certificata dei tuoi documenti amministrativi per l'Australia. Garanzia 72h o rimborso.",
+                feature_certified: "Traduzione certificata ufficiale",
+                feature_fast: "Consegna garantita 72h",
+                feature_accepted: "Accettata dall'immigrazione australiana",
+                feature_support: "Supporto WhatsApp incluso",
+                feature_revision: "1 revisione gratuita",
+                btn_order_translation: "Ordina ora",
+                pack_title: "Starter Pack WHV Australia",
+                pack_price: "297€",
+                pack_description: "Pack completo chiavi in mano per un arrivo di successo in Australia. Tutti i tuoi documenti essenziali ottenuti per te.",
+                pack_tfn: "Ottenimento TFN (Tax File Number)",
+                pack_abn: "Ottenimento ABN (Australian Business Number)",
+                pack_sim: "Scheda SIM australiana prepagata",
+                pack_bank: "Aiuto apertura conto bancario",
+                pack_insurance: "Assicurazione sanitaria partner",
+                pack_guide: "Guida alloggi + consigli",
+                pack_support: "Supporto WhatsApp 30 giorni",
+                btn_order_pack: "Prenota il mio pack"
+            },
+            de: {
+                nav_services: "Dienstleistungen",
+                nav_how: "Wie es funktioniert",
+                nav_testimonials: "Testimonials",
+                nav_faq: "FAQ",
+                nav_contact: "Kontakt",
+                urgency_badge: "Übersetzung garantiert in 72h",
+                hero_title: "Ihr WHV Australien vereinfacht",
+                hero_subtitle: "Express-Übersetzung + Komplettpaket für eine erfolgreiche Ankunft in Australien",
+                cta_translation: "Meine Übersetzung bestellen",
+                cta_pack: "Starter Pack entdecken",
+                services_title: "Unsere Express-Services",
+                translation_title: "WHV Express Übersetzung",
+                translation_price: "Ab 89€",
+                translation_description: "Offizielle zertifizierte Übersetzung Ihrer Verwaltungsdokumente für Australien. 72h Garantie oder Rückerstattung.",
+                feature_certified: "Offizielle zertifizierte Übersetzung",
+                feature_fast: "72h garantierte Lieferung",
+                feature_accepted: "Von australischer Einwanderung akzeptiert",
+                feature_support: "WhatsApp Support inklusive",
+                feature_revision: "1 kostenlose Überarbeitung",
+                btn_order_translation: "Jetzt bestellen",
+                pack_title: "Starter Pack WHV Australien",
+                pack_price: "297€",
+                pack_description: "Komplettes schlüsselfertiges Paket für eine erfolgreiche Ankunft in Australien. Alle wichtigen Dokumente für Sie besorgt.",
+                pack_tfn: "TFN (Tax File Number) Beschaffung",
+                pack_abn: "ABN (Australian Business Number) Beschaffung",
+                pack_sim: "Australische Prepaid-SIM-Karte",
+                pack_bank: "Hilfe bei Kontoeröffnung",
+                pack_insurance: "Partner-Krankenversicherung",
+                pack_guide: "Unterkunftsführer + Tipps",
+                pack_support: "30 Tage WhatsApp Support",
+                btn_order_pack: "Mein Paket reservieren"
+            }
+        };
+
+        let currentLanguage = 'fr';
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('nav-links');
+            const menuToggle = document.querySelector('.mobile-menu-toggle i');
+            
+            navLinks.classList.toggle('mobile-open');
+            
+            if (navLinks.classList.contains('mobile-open')) {
+                menuToggle.classList.remove('fa-bars');
+                menuToggle.classList.add('fa-times');
+            } else {
+                menuToggle.classList.remove('fa-times');
+                menuToggle.classList.add('fa-bars');
+            }
+        }
+
+        // Language functions
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('language-dropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            document.getElementById('current-language').textContent = lang.toUpperCase();
+            
+            // Apply translations if available
+            if (translations[lang]) {
+                applyTranslations(lang);
+            }
+            
+            toggleLanguageDropdown();
+        }
+
+        function applyTranslations(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // FAQ toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            answer.classList.toggle('show');
+            icon.style.transform = answer.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Form functions (simulation)
+        function openTranslationForm() {
+            alert('Formulaire de traduction - À intégrer avec Stripe\n\nFonctionnalités à développer :\n- Upload de fichiers\n- Sélection du type de document\n- Calcul du prix\n- Paiement Stripe\n- Envoi par email');
+        }
+
+        function openPackForm() {
+            alert('Formulaire Starter Pack - À intégrer avec Stripe\n\nFonctionnalités à développer :\n- Formulaire de renseignements\n- Sélection des options\n- Paiement Stripe (3x sans frais)\n- Confirmation par email');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navLinks = document.getElementById('nav-links');
+                    const menuToggle = document.querySelector('.mobile-menu-toggle i');
+                    if (navLinks.classList.contains('mobile-open')) {
+                        navLinks.classList.remove('mobile-open');
+                        menuToggle.classList.remove('fa-times');
+                        menuToggle.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const selector = document.querySelector('.language-selector');
+            if (!selector.contains(event.target)) {
+                document.getElementById('language-dropdown').classList.remove('show');
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#ffffff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default language
+            changeLanguage('fr');
+        });
+    </script>
+</body>
+</html>
